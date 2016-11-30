@@ -29,14 +29,22 @@ type Task struct {
 	//SchedReq SchedulingRequirements
 }
 
+type StringArgument string
+type Argument interface {
+	AsArgument() string
+}
+
+type PreparedTask struct {
+	Command string
+	Args    []Argument
+	Stdin   *FIFO
+	Stdout  *FIFO
+	Stderr  *FIFO
+}
+
 type Job struct {
 	Owner string
 	Name  string
 	Quota ResourceQuota
 	Flow  []Task
-}
-
-type FIFO struct {
-	Name       string
-	References []string
 }
