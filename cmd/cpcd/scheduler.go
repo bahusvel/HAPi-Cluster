@@ -1,23 +1,17 @@
 package main
 
-const (
-	CP_ROOT  = "/var/clusterpipe/"
-	CP_PIPES = CP_ROOT + "pipes/"
+import (
+	"github.com/bahusvel/ClusterPipe/common"
 )
-
-type FIFO struct {
-	Name       string
-	References []string
-}
 
 func MkFIFO() error {
 	return nil
 }
 
-func BridgeFIFO(in FIFO, toHost string) error {
+func BridgeFIFO(in common.FIFO, toHost string) error {
 	return nil
 }
 
-func Run(in *FIFO, command string, out *FIFO) error {
+func Run(in *common.FIFO, command string, out *common.FIFO) error {
 	return nil
 }

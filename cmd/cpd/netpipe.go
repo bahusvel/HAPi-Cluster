@@ -9,6 +9,8 @@ import (
 	"net"
 	"os"
 	"syscall"
+
+	"github.com/bahusvel/ClusterPipe/common"
 )
 
 const (
@@ -25,7 +27,7 @@ func RequestPipe(host string, pipename string) error {
 	if len(pipename) >= PIPE_NAME_SIZE {
 		return fmt.Errorf("Pipename too long")
 	}
-	pipeName := CP_PIPES + string(pipename)
+	pipeName := common.CP_PIPES + string(pipename)
 	err := syscall.Mkfifo(pipeName, PIPE_MODE)
 	if err != nil {
 		log.Println("Error creating pipe", err)
@@ -76,7 +78,7 @@ func handleRequest(conn net.Conn) {
 		return
 	}
 	n := bytes.IndexByte(request.PipeName[:], 0)
-	pipeName := CP_PIPES + string(request.PipeName[:n])
+	pipeName := common.CP_PIPES + string(request.PipeName[:n])
 	err = syscall.Mkfifo(pipeName, PIPE_MODE)
 	if err != nil {
 		log.Println("Error creating pipe", err)
