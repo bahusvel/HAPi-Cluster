@@ -2,61 +2,55 @@ package main
 
 import (
 	"os/exec"
+	"sync"
 
 	"github.com/bahusvel/ClusterPipe/common"
 )
 
 var localNode string
+var procMutex = sync.RWMutex{}
+var processes map[string][]common.PreparedTask
 
-func ScheduleTasks(tasks []common.PreparedTask) error {
-	for _, task := range tasks {
-		args := []string{}
-		for _, arg := range task.Args {
-			if fifo, ok := arg.(common.FIFO); ok {
-				if err := fifo.Check(); err != nil {
-					return err
-				}
-				args = append(args, arg.AsArgument())
-			}
-		}
-
-		cmd := exec.Command(task.Command, args...)
-		var err error
-		if task.Stderr != nil {
-			cmd.Stderr, err = task.Stderr.Open()
-			if err != nil {
-				return err
-			}
-		}
-		if task.Stdout != nil {
-			cmd.Stdout, err = task.Stdout.Open()
-			if err != nil {
-				return err
-			}
-		}
-		if task.Stdin != nil {
-			cmd.Stdin, err = task.Stdin.Open()
-			if err != nil {
-				return err
-			}
-		}
-
-		err = Run(cmd)
+func Run(task common.PreparedTask) error {
+	cmd := exec.Command(task.Command, task.Args...)
+	var err error
+	if task.Stderr != nil {
+		cmd.Stderr, err = task.Stderr.Open()
 		if err != nil {
 			return err
 		}
 	}
-	return nil
-}
+	if task.Stdout != nil {
+		cmd.Stdout, err = task.Stdout.Open()
+		if err != nil {
+			return err
+		}
+	}
+	if task.Stdin != nil {
+		cmd.Stdin, err = task.Stdin.Open()
+		if err != nil {
+			return err
+		}
+	}
 
-func Run(command *exec.Cmd) error {
-	return nil
-}
+	procMutex.Lock()
+	defer procMutex.Unlock()
 
-func MkFIFO() error {
+	err = cmd.Start()
+	if err != nil {
+		return err
+	}
+	task.Process = cmd
+	if jobProcs, ok := processes[task.Job]; !ok {
+		processes[task.Job] = []common.PreparedTask{task}
+	} else {
+		processes[task.Job] = append(jobProcs, task)
+	}
+
 	return nil
 }
 
 func main() {
-
+	go common.RunPipeServer()
+	Start()
 }

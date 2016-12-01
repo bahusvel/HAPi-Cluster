@@ -1,5 +1,7 @@
 package common
 
+import "os/exec"
+
 const (
 	CP_ROOT  = "/var/clusterpipe/"
 	CP_PIPES = CP_ROOT + "pipes/"
@@ -29,17 +31,14 @@ type Task struct {
 	//SchedReq SchedulingRequirements
 }
 
-type StringArgument string
-type Argument interface {
-	AsArgument() string
-}
-
 type PreparedTask struct {
+	Job     string
 	Command string
-	Args    []Argument
+	Args    []string
 	Stdin   *FIFO
 	Stdout  *FIFO
 	Stderr  *FIFO
+	Process *exec.Cmd
 }
 
 type Job struct {
