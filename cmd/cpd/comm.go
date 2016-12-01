@@ -38,7 +38,7 @@ func jobKill(job string) {
 
 func makeFifo(pipe common.FIFO) error {
 	var err error
-	if pipe.Node == localNode {
+	if pipe.Node == thisCPD.Host {
 		err = pipe.MakeLocal()
 	} else {
 		err = pipe.MakeRemote()

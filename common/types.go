@@ -1,6 +1,14 @@
 package common
 
-import "os/exec"
+import (
+	"os/exec"
+	"time"
+
+	"github.com/shirou/gopsutil/cpu"
+	"github.com/shirou/gopsutil/host"
+	"github.com/shirou/gopsutil/mem"
+	"github.com/shirou/gopsutil/net"
+)
 
 const (
 	CP_ROOT  = "/var/clusterpipe/"
@@ -48,7 +56,19 @@ type Job struct {
 	Flow  []Task
 }
 
+type CPDStatus struct {
+	LastCheckin time.Time
+	Jobs        []string
+	CPUUtil     float64
+	CPUTime     []cpu.TimesStat
+	MemStat     *mem.VirtualMemoryStat
+	NetStat     net.IOCountersStat
+}
+
 type CPD struct {
-	Host string
-	Jobs []string
+	Host          string
+	HostInfo      *host.InfoStat
+	CPUInfo       []cpu.InfoStat
+	NetInfo       []net.InterfaceStat
+	CurrentStatus *CPDStatus
 }

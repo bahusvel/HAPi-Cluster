@@ -7,7 +7,8 @@ import (
 	"github.com/bahusvel/ClusterPipe/common"
 )
 
-var localNode string
+var thisCPD = common.CPD{}
+
 var procMutex = sync.RWMutex{}
 var processes = map[string][]common.PreparedTask{}
 
