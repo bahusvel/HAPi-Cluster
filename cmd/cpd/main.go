@@ -9,7 +9,7 @@ import (
 
 var localNode string
 var procMutex = sync.RWMutex{}
-var processes map[string][]common.PreparedTask
+var processes = map[string][]common.PreparedTask{}
 
 func Run(task common.PreparedTask) error {
 	cmd := exec.Command(task.Command, task.Args...)

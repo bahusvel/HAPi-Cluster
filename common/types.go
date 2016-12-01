@@ -47,3 +47,8 @@ type Job struct {
 	Quota ResourceQuota
 	Flow  []Task
 }
+
+type CPD struct {
+	Host string
+	Jobs []string
+}
