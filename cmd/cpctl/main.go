@@ -1,15 +1,33 @@
 package main
 
 import (
+	"log"
 	"os"
 	"reflect"
 
 	"github.com/bahusvel/ClusterPipe/common"
 	"github.com/olekukonko/tablewriter"
 	"github.com/urfave/cli"
+	"github.com/valyala/gorpc"
 )
 
 var clusterNodes []common.CPD
+var clusterAddress = ""
+var cpcdClient *gorpc.Client
+
+func checkCluster() {
+	if clusterAddress == "" {
+		log.Fatalln("You must specify the address of the cluster")
+	}
+	cpcdClient = &gorpc.Client{
+		Addr: clusterAddress,
+	}
+	cpcdClient.Start()
+	_, err := cpcdClient.Call("ping")
+	if err != nil {
+		log.Fatalln("Failed to connect to cluster controller", err)
+	}
+}
 
 func fieldNames(value interface{}) []string {
 	v := reflect.TypeOf(value)
@@ -30,9 +48,14 @@ func fieldValues(value interface{}) []string {
 }
 
 func NodeStatus(c *cli.Context) error {
+	checkCluster()
+	nodes, err := cpcdClient.Call("getNodes")
+	if err != nil {
+		return err
+	}
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader(fieldNames(common.CPD{}))
-	for _, node := range clusterNodes {
+	for _, node := range nodes.([]*common.CPD) {
 		table.Append(fieldValues(node))
 	}
 	table.Render()
@@ -77,6 +100,12 @@ func main() {
 			Action: func(c *cli.Context) error {
 				return nil
 			},
+		},
+	}
+	app.Flags = []cli.Flag{
+		cli.StringFlag{
+			Name:        "cluster, c",
+			Destination: &clusterAddress,
 		},
 	}
 
