@@ -17,6 +17,9 @@ CPCTL_ENV=
 clean:
 	rm -f build/*
 
+deps:
+	cd cmd/ && go get ...
+
 cpd:
 	cd cmd/cpd && $(CPD_ENV) go build -o ../../build/cpd
 
@@ -27,3 +30,8 @@ cpctl:
 	cd cmd/cpctl && $(CPCTL_ENV) go build -o ../../build/cpctl
 
 build: clean cpd cpcd cpctl
+
+test_ctl_cd: clean cpcd cpctl
+	build/cpcd &
+	build/cpctl --c 127.0.0.1:3334 nodes
+	killall cpcd
