@@ -20,11 +20,12 @@ type callReturn struct {
 }
 
 type Server struct {
+	address     string
 	methodTable map[string]reflect.Value
 }
 
-func NewServer() *Server {
-	server := &Server{}
+func NewServer(address string) *Server {
+	server := &Server{address: address}
 	server.methodTable = make(map[string]reflect.Value)
 	return server
 }
@@ -62,7 +63,7 @@ func (this *Server) AddFunc(name string, function interface{}) {
 
 func (this *Server) Start() error {
 	s := &http.Server{
-		Addr:           ":8080",
+		Addr:           this.address,
 		Handler:        this,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,

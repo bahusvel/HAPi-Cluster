@@ -3,6 +3,7 @@ package kissrpc
 import (
 	"log"
 	"testing"
+	"time"
 )
 
 type Message struct {
@@ -11,9 +12,9 @@ type Message struct {
 }
 
 func TestSimpleServer(t *testing.T) {
-	server := NewServer()
-	server.AddFunc("Test", func(message Message) {
-		log.Println("Hello!", message.Text)
+	server := NewServer(":3334")
+	server.AddFunc("Test", func(text string, number int) {
+		log.Println("Hello!", text, number)
 	})
 	go func() {
 		err := server.Start()
@@ -21,15 +22,16 @@ func TestSimpleServer(t *testing.T) {
 			log.Fatal(err)
 		}
 	}()
+	time.Sleep(100 * time.Millisecond)
 }
 
 func TestSimpleCall(t *testing.T) {
-	client, err := NewClient("127.0.0.1:8080")
+	client, err := NewClient("127.0.0.1:3334")
 	if err != nil {
 		t.Error(err.Error())
 	}
 	client.RegisterType(Message{})
-	_, err = client.Call("Test", Message{Text: "Hi", Number: 1})
+	_, err = client.Call("Test", "Test", 1)
 	if err != nil {
 		t.Error(err.Error())
 	}
