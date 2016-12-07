@@ -61,7 +61,7 @@ type CPDStatus struct {
 	Jobs        []string
 	CPUUtil     float64
 	CPUTime     []cpu.TimesStat
-	MemStat     *mem.VirtualMemoryStat
+	MemStat     mem.VirtualMemoryStat
 	NetStat     net.IOCountersStat
 }
 

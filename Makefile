@@ -44,8 +44,6 @@ test_controller: clean cpd cpcd cpctl
 	build/cpcd &
 	sleep 1
 	build/cpd -i 127.0.0.1 -c 127.0.0.1:3334  &
-	sleep 1
-	build/cpctl -c 127.0.0.1:3334 nodes
 	sleep 5
 	killall cpcd || true
 	killall cpd || true

@@ -45,10 +45,11 @@ func StartStatMonitor(callback func(common.CPDStatus)) error {
 		if err != nil {
 			log.Println("Failed to obtain CPU load", err)
 		}
-		newStatus.MemStat, err = mem.VirtualMemory()
+		tmpMem, err := mem.VirtualMemory()
 		if err != nil {
 			log.Println("Failed to obtain memory statistics", err)
 		}
+		newStatus.MemStat = *tmpMem
 		netA, err := net.IOCounters(false)
 		if err != nil {
 			log.Println("Failed to obtain network statistics", err)
