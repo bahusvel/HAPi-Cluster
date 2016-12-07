@@ -12,6 +12,10 @@ import (
 
 var registeredTypes = map[string]struct{}{
 	"string": {},
+	"float":  {},
+	"int":    {},
+	"int32":  {},
+	"int64":  {},
 }
 
 func init() {
