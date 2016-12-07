@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"os"
 	"os/exec"
 	"sync"
@@ -57,6 +58,13 @@ func Run(task common.PreparedTask) error {
 	return nil
 }
 
+func reportStatus(status common.CPDStatus) {
+	_, err := controller.Call("updateCPD", thisCPD.Host, status)
+	if err != nil {
+		log.Println("Error updating status", err)
+	}
+}
+
 func main() {
 	app := cli.NewApp()
 	app.Flags = []cli.Flag{
@@ -92,6 +100,7 @@ func main() {
 		if err != nil {
 			return err
 		}
+		go StartStatMonitor(reportStatus)
 		for {
 			time.Sleep(1 * time.Second)
 		}

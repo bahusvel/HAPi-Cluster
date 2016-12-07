@@ -32,7 +32,7 @@ func GatherHostInfo() error {
 	return nil
 }
 
-func StartStatMonitor() error {
+func StartStatMonitor(callback func(common.CPDStatus)) error {
 	newStatus := common.CPDStatus{}
 	thisCPD.CurrentStatus = &newStatus
 	for {
@@ -54,6 +54,8 @@ func StartStatMonitor() error {
 			log.Println("Failed to obtain network statistics", err)
 		}
 		newStatus.NetStat = netA[0]
+
+		callback(newStatus)
 		time.Sleep(STAT_INTERVAL)
 	}
 }

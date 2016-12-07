@@ -16,6 +16,7 @@ var registeredTypes = map[string]struct{}{
 	"int":    {},
 	"int32":  {},
 	"int64":  {},
+	"error":  {},
 }
 
 func init() {
@@ -61,7 +62,6 @@ func (this *Server) ServeHTTP(response http.ResponseWriter, request *http.Reques
 
 	arguments := []reflect.Value{}
 	for _, arg := range callRequest.Args {
-		log.Println("Got arg", arg)
 		arguments = append(arguments, reflect.ValueOf(arg))
 	}
 
@@ -116,7 +116,7 @@ func NewClient(address string) (*Client, error) {
 
 func registerType(inType reflect.Type) {
 	if _, ok := registeredTypes[inType.String()]; !ok {
-		log.Println("Registering type", inType.PkgPath()+"."+inType.Name())
+		log.Println("Registering type", inType.String())
 		gob.Register(reflect.Indirect(reflect.New(inType)).Interface())
 		registeredTypes[inType.String()] = struct{}{}
 	}

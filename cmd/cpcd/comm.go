@@ -29,9 +29,10 @@ func registerCPD(node common.CPD) {
 	nodes[node.Host] = &node
 }
 
-func updateCPD(cpd string, status *common.CPDStatus) {
+func updateCPD(cpd string, status common.CPDStatus) {
 	status.LastCheckin = time.Now()
-	nodes[cpd].CurrentStatus = status
+	nodes[cpd].CurrentStatus = &status
+	log.Println(status)
 }
 
 func Start() error {

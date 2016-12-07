@@ -13,6 +13,7 @@ const (
 
 func init() {
 	kissrpc.RegisterType(common.CPD{})
+	kissrpc.RegisterType(common.CPDStatus{})
 }
 
 func receiveTask(tasks []common.PreparedTask) error {
