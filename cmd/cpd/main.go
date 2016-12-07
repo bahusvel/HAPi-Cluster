@@ -65,7 +65,7 @@ func main() {
 			Destination: &controllerAddress,
 		},
 		cli.StringFlag{
-			Name:        "host, h",
+			Name:        "ip, i",
 			Destination: &thisCPD.Host,
 		},
 	}
@@ -75,11 +75,15 @@ func main() {
 			return cli.NewExitError("You must specify controller address -c", -1)
 		}
 		if thisCPD.Host == "" {
-			return cli.NewExitError("You must specify local address -h", -1)
+			return cli.NewExitError("You must specify local address -i", -1)
 		}
+
 		go common.RunPipeServer()
 		go Start()
-		var err error
+		err := GatherHostInfo()
+		if err != nil {
+			return err
+		}
 		controller, err = kissrpc.NewClient(controllerAddress)
 		if err != nil {
 			return err

@@ -116,8 +116,8 @@ func NewClient(address string) (*Client, error) {
 
 func registerType(inType reflect.Type) {
 	if _, ok := registeredTypes[inType.String()]; !ok {
-		log.Println("Registering type", inType.String())
-		gob.Register(reflect.New(inType).Interface())
+		log.Println("Registering type", inType.PkgPath()+"."+inType.Name())
+		gob.Register(reflect.Indirect(reflect.New(inType)).Interface())
 		registeredTypes[inType.String()] = struct{}{}
 	}
 }

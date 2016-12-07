@@ -8,8 +8,12 @@ import (
 )
 
 const (
-	COM_PORT = ":3334"
+	COM_PORT = ":3335"
 )
+
+func init() {
+	kissrpc.RegisterType(common.CPD{})
+}
 
 func receiveTask(tasks []common.PreparedTask) error {
 	log.Println("Received connection from CPD")

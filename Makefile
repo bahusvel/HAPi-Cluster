@@ -1,5 +1,5 @@
-CPD_PLATFORM=rpi3
-CPCD_PLATFORM=linux_amd64
+CPD_PLATFORM=current
+CPCD_PLATFORM=current
 
 ifeq ($(CPD_PLATFORM),rpi3)
 	CPD_ENV= GOOS=linux GOARCH=arm GOARM=7
@@ -32,10 +32,18 @@ cpctl:
 build: clean cpd cpcd cpctl
 
 test_ctl_cd: clean cpcd cpctl
-	killall -q cpcd || true
+	killall cpcd || true
 	build/cpcd &
 	sleep 1
 	build/cpctl -c 127.0.0.1:3334 nodes
-	killall -q cpcd || true
+	killall cpcd || true
 
 test_controller: clean cpd cpcd
+	killall cpcd || true
+	killall cpd || true
+	build/cpcd &
+	sleep 1
+	build/cpd -i 127.0.0.1 -c 127.0.0.1:3334  &
+	sleep 5
+	killall cpcd || true
+	killall cpd || true

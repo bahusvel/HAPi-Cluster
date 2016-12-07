@@ -25,8 +25,8 @@ func getNodes() []*common.CPD {
 	return currentNodes
 }
 
-func registerCPD(node *common.CPD) {
-	nodes[node.Host] = node
+func registerCPD(node common.CPD) {
+	nodes[node.Host] = &node
 }
 
 func updateCPD(cpd string, status *common.CPDStatus) {

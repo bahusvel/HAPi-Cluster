@@ -16,7 +16,7 @@ var clusterAddress = ""
 var cpcdClient *kissrpc.Client
 
 func init() {
-	kissrpc.RegisterType(&[]*common.CPD{})
+	kissrpc.RegisterType([]*common.CPD{})
 }
 
 func checkCluster() {
@@ -61,7 +61,7 @@ func NodeStatus(c *cli.Context) error {
 	}
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader(fieldNames(common.CPD{}))
-	for _, node := range *nodes.(*[]*common.CPD) {
+	for _, node := range nodes.([]*common.CPD) {
 		table.Append(fieldValues(*node))
 	}
 	table.Render()
