@@ -4,11 +4,11 @@ import (
 	"log"
 
 	"github.com/bahusvel/ClusterPipe/common"
-	"github.com/valyala/gorpc"
+	"github.com/bahusvel/ClusterPipe/kissrpc"
 )
 
 const (
-	COM_PORT = "3334"
+	COM_PORT = ":3334"
 )
 
 func receiveTask(tasks []common.PreparedTask) error {
@@ -51,10 +51,9 @@ func makeFifo(pipe common.FIFO) error {
 }
 
 func Start() error {
-	dispatch := gorpc.NewDispatcher()
-	dispatch.AddFunc("receiveTask", receiveTask)
-	dispatch.AddFunc("jobStat", jobStat)
-	dispatch.AddFunc("jobKill", jobKill)
-	server := gorpc.NewTCPServer(":"+COM_PORT, dispatch.NewHandlerFunc())
-	return server.Serve()
+	server := kissrpc.NewServer(COM_PORT)
+	server.AddFunc("receiveTask", receiveTask)
+	server.AddFunc("jobStat", jobStat)
+	server.AddFunc("jobKill", jobKill)
+	return server.Start()
 }

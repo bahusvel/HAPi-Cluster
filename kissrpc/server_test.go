@@ -30,7 +30,7 @@ func TestSimpleCall(t *testing.T) {
 	if err != nil {
 		t.Error(err.Error())
 	}
-	client.RegisterType(Message{})
+	RegisterType(Message{})
 	_, err = client.Call("Test", "Test", 1)
 	if err != nil {
 		t.Error(err.Error())

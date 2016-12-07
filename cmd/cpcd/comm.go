@@ -1,18 +1,19 @@
 package main
 
 import (
+	"log"
 	"time"
 
 	"github.com/bahusvel/ClusterPipe/common"
-	"github.com/valyala/gorpc"
+	"github.com/bahusvel/ClusterPipe/kissrpc"
 )
 
 const (
-	COM_PORT = "3334"
+	COM_PORT = ":3334"
 )
 
 func ping() {
-
+	log.Println("Got ping")
 }
 
 func getNodes() []*common.CPD {
@@ -20,6 +21,7 @@ func getNodes() []*common.CPD {
 	for _, node := range nodes {
 		currentNodes = append(currentNodes, node)
 	}
+	//return []*common.CPD{&common.CPD{}}
 	return currentNodes
 }
 
@@ -33,11 +35,10 @@ func updateCPD(cpd string, status *common.CPDStatus) {
 }
 
 func Start() error {
-	dispatch := gorpc.NewDispatcher()
-	dispatch.AddFunc("registerCPD", registerCPD)
-	dispatch.AddFunc("updateCPD", updateCPD)
-	dispatch.AddFunc("getNodes", getNodes)
-	dispatch.AddFunc("ping", ping)
-	server := gorpc.NewTCPServer(":"+COM_PORT, dispatch.NewHandlerFunc())
-	return server.Serve()
+	server := kissrpc.NewServer(COM_PORT)
+	server.AddFunc("ping", ping)
+	server.AddFunc("registerCPD", registerCPD)
+	server.AddFunc("updateCPD", updateCPD)
+	server.AddFunc("getNodes", getNodes)
+	return server.Start()
 }

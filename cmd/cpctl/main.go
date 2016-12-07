@@ -6,24 +6,29 @@ import (
 	"reflect"
 
 	"github.com/bahusvel/ClusterPipe/common"
+	"github.com/bahusvel/ClusterPipe/kissrpc"
 	"github.com/olekukonko/tablewriter"
 	"github.com/urfave/cli"
-	"github.com/valyala/gorpc"
 )
 
 var clusterNodes []common.CPD
 var clusterAddress = ""
-var cpcdClient *gorpc.Client
+var cpcdClient *kissrpc.Client
+
+func init() {
+	kissrpc.RegisterType(&[]*common.CPD{})
+}
 
 func checkCluster() {
 	if clusterAddress == "" {
 		log.Fatalln("You must specify the address of the cluster")
 	}
-	cpcdClient = &gorpc.Client{
-		Addr: clusterAddress,
+	var err error
+	cpcdClient, err = kissrpc.NewClient(clusterAddress)
+	if err != nil {
+		log.Fatalln("Failed to connect to cluster controller", err)
 	}
-	cpcdClient.Start()
-	_, err := cpcdClient.Call("ping")
+	_, err = cpcdClient.Call("ping")
 	if err != nil {
 		log.Fatalln("Failed to connect to cluster controller", err)
 	}
@@ -49,14 +54,15 @@ func fieldValues(value interface{}) []string {
 
 func NodeStatus(c *cli.Context) error {
 	checkCluster()
-	nodes, err := cpcdClient.Call("getNodes")
+	nodes, err := cpcdClient.Call1("getNodes")
 	if err != nil {
+		log.Println("Error getting nodes", err)
 		return err
 	}
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader(fieldNames(common.CPD{}))
-	for _, node := range nodes.([]*common.CPD) {
-		table.Append(fieldValues(node))
+	for _, node := range *nodes.(*[]*common.CPD) {
+		table.Append(fieldValues(*node))
 	}
 	table.Render()
 	return nil

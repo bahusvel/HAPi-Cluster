@@ -32,6 +32,8 @@ cpctl:
 build: clean cpd cpcd cpctl
 
 test_ctl_cd: clean cpcd cpctl
+	killall -q cpcd || true
 	build/cpcd &
-	build/cpctl --c 127.0.0.1:3334 nodes
-	killall cpcd
+	sleep 1
+	build/cpctl -c 127.0.0.1:3334 nodes
+	killall -q cpcd || true
