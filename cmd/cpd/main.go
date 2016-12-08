@@ -96,9 +96,14 @@ func main() {
 		if err != nil {
 			return err
 		}
-		_, err = controller.Call("registerCPD", &thisCPD)
-		if err != nil {
-			return err
+		for {
+			_, err = controller.Call("registerCPD", &thisCPD)
+			if err != nil {
+				log.Println("Error registering CPD", err)
+			} else {
+				break
+			}
+			time.Sleep(1 * time.Second)
 		}
 		go StartStatMonitor(reportStatus)
 		for {

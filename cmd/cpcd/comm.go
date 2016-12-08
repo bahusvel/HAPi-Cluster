@@ -32,7 +32,9 @@ func registerCPD(node common.CPD) {
 func updateCPD(cpd string, status common.CPDStatus) {
 	status.LastCheckin = time.Now()
 	nodes[cpd].CurrentStatus = &status
+	log.Printf("Hi %+v\n", status)
 	log.Println(TraverseParamTree(status))
+	log.Println("Bye")
 }
 
 func Start() error {

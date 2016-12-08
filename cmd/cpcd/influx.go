@@ -32,15 +32,12 @@ func InfluxInit() {
 }
 
 func treatValue(valueTable *map[string]interface{}, value reflect.Value, root string) {
-	if !value.CanAddr() {
-		return
-	}
 	switch value.Kind() {
 	case reflect.Struct:
 		traverseStruct(valueTable, value.Interface(), root)
 	case reflect.Slice, reflect.Array:
 		for i := 0; i < value.Len(); i++ {
-			treatValue(valueTable, value, fmt.Sprintf("%s.%d", root, i))
+			treatValue(valueTable, value.Index(i), fmt.Sprintf("%s.%d", root, i))
 		}
 	default:
 		(*valueTable)[root] = value.Interface()
@@ -53,7 +50,10 @@ func traverseStruct(valueTable *map[string]interface{}, value interface{}, root 
 	for i := 0; i < vtype.NumField(); i++ {
 		structField := vtype.Field(i)
 		fieldValue := vval.Field(i)
-		treatValue(valueTable, fieldValue, root+"."+structField.Name)
+		// check if field is exported
+		if structField.Name[0] >= 'A' && structField.Name[0] <= 'Z' {
+			treatValue(valueTable, fieldValue, root+"."+structField.Name)
+		}
 	}
 }
 
