@@ -39,7 +39,7 @@ test_cluster:
 	scp build/cpcd root@$(CONTROLLER_IP):/usr/bin/
 	scp build/cpd root@$(CONTROLLER_IP):/nfs/share/bin/
 	ssh root@$(CONTROLLER_IP) "bash distribute_cpd.sh" &
-	ssh root@$(CONTROLLER_IP) "/usr/bin/cpcd"
+	ssh root@$(CONTROLLER_IP) "/usr/bin/cpcd -i"
 
 test_ctl_cd: build
 	make build CPD_PLATFORM=current CPCD_PLATFORM=current

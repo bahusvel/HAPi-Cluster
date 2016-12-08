@@ -10,25 +10,23 @@ import (
 )
 
 const (
-	MyDB     = "square_holes"
-	username = "bubba"
-	password = "bumblebeetuna"
+	DB = "node_status"
 )
+
+var FLOAT_TYPE = reflect.TypeOf(float64(0))
 
 var influxClient client.Client
 
-func InfluxInit() {
+func InfluxInit() error {
 	// Make client
 	var err error
 	influxClient, err = client.NewHTTPClient(client.HTTPConfig{
-		Addr:     "http://localhost:8086",
-		Username: username,
-		Password: password,
+		Addr: "http://localhost:8086",
 	})
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return err
 	}
-
+	return nil
 }
 
 func treatValue(valueTable *map[string]interface{}, value reflect.Value, root string) {
@@ -40,7 +38,13 @@ func treatValue(valueTable *map[string]interface{}, value reflect.Value, root st
 			treatValue(valueTable, value.Index(i), fmt.Sprintf("%s.%d", root, i))
 		}
 	default:
-		(*valueTable)[root] = value.Interface()
+		// NOTE influx bullshit, doing weird stuff with ints
+		if value.Type().ConvertibleTo(FLOAT_TYPE) {
+			(*valueTable)[root] = value.Convert(FLOAT_TYPE).Interface()
+		} else {
+			(*valueTable)[root] = value.Interface()
+		}
+
 	}
 }
 
@@ -63,32 +67,24 @@ func TraverseParamTree(value interface{}) map[string]interface{} {
 	return valMap
 }
 
-func LogUpdate(cpd string, status common.CPDStatus) {
+func InfluxInsert(cpd string, status common.CPDStatus) error {
 	// Create a new point batch
 	bp, err := client.NewBatchPoints(client.BatchPointsConfig{
-		Database:  MyDB,
+		Database:  DB,
 		Precision: "s",
 	})
-
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return err
 	}
-
 	// Create a point and add to batch
 	tags := map[string]string{"host": cpd}
-	fields := map[string]interface{}{
-		"idle":   10.1,
-		"system": 53.3,
-		"user":   46.6,
-	}
-	pt, err := client.NewPoint("cpu_usage", tags, fields, status.LastCheckin)
-
+	fields := TraverseParamTree(status)
+	log.Println(fields)
+	pt, err := client.NewPoint("node_load", tags, fields, status.LastCheckin)
 	if err != nil {
-		log.Fatalln("Error: ", err)
+		return err
 	}
-
 	bp.AddPoint(pt)
 
-	// Write the batch
-	influxClient.Write(bp)
+	return influxClient.Write(bp)
 }
