@@ -1,11 +1,9 @@
 {
-	"Name": "",
-	"Description": "",
-	"TotalQuotas":{"RAM":"", "CPU":"", "Disk":""},
-	"Owner":"",
+	"Name": "Test",
+	"Description": "Test Job 1",
+	"Owner":"denislavrov",
 	"Flow":[
-		{"Command":"", "Args":[], "Stdin":"", "Stdout":"", "Stderr":"", "SchedulingReqs":{}, "ResourceReqs":{}},
-		{"Command":"", "Args":["$pipe1", "$pipe2"]},
-		{"Command":"", "Stdin":"$pipe1", "Stdout":"$pipe2"},
-	],
+		{"Command":"hostname", "Stdout":"$pipe1"},
+		{"Command":"echo", "Stdin":"$pipe2"},
+	]
 }

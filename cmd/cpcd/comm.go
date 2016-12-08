@@ -16,6 +16,14 @@ func ping() {
 	log.Println("Got ping")
 }
 
+func scheduleJob(job common.Job) error {
+	return nil
+}
+
+func jobStatus(job string) string {
+	return ""
+}
+
 func getNodes() []*common.CPD {
 	currentNodes := []*common.CPD{}
 	for _, node := range nodes {
@@ -41,6 +49,7 @@ func Start() error {
 	server := kissrpc.NewServer(COM_PORT)
 	server.AddFunc("ping", ping)
 	server.AddFunc("registerCPD", registerCPD)
+	server.AddFunc("scheduleJob", scheduleJob)
 	server.AddFunc("updateCPD", updateCPD)
 	server.AddFunc("getNodes", getNodes)
 	return server.Start()

@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+const DEBUG = false
+
 var registeredTypes = map[string]struct{}{
 	"string": {},
 	"float":  {},
@@ -54,7 +56,9 @@ func (this *Server) ServeHTTP(response http.ResponseWriter, request *http.Reques
 	}
 	var method reflect.Value
 	var ok bool
-	log.Println("Calling", callRequest.Name)
+	if DEBUG {
+		log.Println("Calling", callRequest.Name)
+	}
 	if method, ok = this.methodTable[callRequest.Name]; !ok {
 		log.Println("Requested method not found", callRequest.Name)
 		return
@@ -84,7 +88,9 @@ func (this *Server) AddFunc(name string, function interface{}) {
 		panic(fmt.Errorf("%s is not a function", name))
 	}
 	funcType := val.Type()
-	log.Printf("Function %s has type %s\n", name, funcType.String())
+	if DEBUG {
+		log.Printf("Function %s has type %s\n", name, funcType.String())
+	}
 	for i := 0; i < funcType.NumIn(); i++ {
 		registerType(funcType.In(i))
 	}
@@ -116,7 +122,9 @@ func NewClient(address string) (*Client, error) {
 
 func registerType(inType reflect.Type) {
 	if _, ok := registeredTypes[inType.String()]; !ok {
-		log.Println("Registering type", inType.String())
+		if DEBUG {
+			log.Println("Registering type", inType.String())
+		}
 		gob.Register(reflect.Indirect(reflect.New(inType)).Interface())
 		registeredTypes[inType.String()] = struct{}{}
 	}
@@ -168,6 +176,19 @@ func (this Client) Call2(name string, args ...interface{}) (interface{}, interfa
 	return rets[0], rets[1], err
 }
 
-func (this Client) CallError(name string, args ...interface{}) (interface{}, error) {
-	return nil, nil
+func (this Client) CallError(name string, args ...interface{}) error {
+	var rets []interface{}
+	var err error
+	rets, err = this.Call(name, args...)
+	if err != nil {
+		return err
+	}
+	if len(rets) != 1 {
+		return fmt.Errorf("Unexpected return values for %s expected %d got %d", name, 1, len(rets))
+	}
+	if err1, ok := rets[0].(error); !ok {
+		return fmt.Errorf("Return type is not error")
+	} else {
+		return err1
+	}
 }

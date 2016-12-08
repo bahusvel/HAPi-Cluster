@@ -13,10 +13,11 @@ import (
 
 var clusterNodes []common.CPD
 var clusterAddress = ""
-var cpcdClient *kissrpc.Client
+var controller *kissrpc.Client
 
 func init() {
 	kissrpc.RegisterType([]*common.CPD{})
+	kissrpc.RegisterType(common.Job{})
 }
 
 func checkCluster() {
@@ -24,11 +25,11 @@ func checkCluster() {
 		log.Fatalln("You must specify the address of the cluster")
 	}
 	var err error
-	cpcdClient, err = kissrpc.NewClient(clusterAddress)
+	controller, err = kissrpc.NewClient(clusterAddress)
 	if err != nil {
 		log.Fatalln("Failed to connect to cluster controller", err)
 	}
-	_, err = cpcdClient.Call("ping")
+	_, err = controller.Call("ping")
 	if err != nil {
 		log.Fatalln("Failed to connect to cluster controller", err)
 	}
@@ -54,7 +55,7 @@ func fieldValues(value interface{}) []string {
 
 func NodeStatus(c *cli.Context) error {
 	checkCluster()
-	nodes, err := cpcdClient.Call1("getNodes")
+	nodes, err := controller.Call1("getNodes")
 	if err != nil {
 		log.Println("Error getting nodes", err)
 		return err
@@ -65,6 +66,21 @@ func NodeStatus(c *cli.Context) error {
 		table.Append(fieldValues(*node))
 	}
 	table.Render()
+	return nil
+}
+
+func ScheduleJob(c *cli.Context) error {
+	if c.String("job") == "" {
+		return cli.NewExitError("You must specify a job to schedule -j", -1)
+	}
+	job, err := ReadJobFile(c.String("job"))
+	if err != nil {
+		return err
+	}
+	err = controller.CallError("scheduleJob", job)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
@@ -86,6 +102,7 @@ func main() {
 					Name: "job, j",
 				},
 			},
+			Action: ScheduleJob,
 		},
 		{
 			Name: "kill",

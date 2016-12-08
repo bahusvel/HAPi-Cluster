@@ -40,6 +40,7 @@ type Task struct {
 }
 
 type PreparedTask struct {
+	Node    string
 	Job     string
 	Command string
 	Args    []string
@@ -54,6 +55,9 @@ type Job struct {
 	Name  string
 	Quota ResourceQuota
 	Flow  []Task
+}
+
+type ProcessStatus struct {
 }
 
 type CPDStatus struct {
