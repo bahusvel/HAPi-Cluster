@@ -2,6 +2,7 @@ package common
 
 import (
 	"log"
+	"sort"
 	"time"
 
 	"github.com/shirou/gopsutil/cpu"
@@ -16,6 +17,7 @@ const (
 )
 
 var MonitorDiskUsage = false
+var partitions []disk.PartitionStat
 
 func GatherHostInfo(thisCPD *CPD) error {
 	var err error
@@ -34,9 +36,38 @@ func GatherHostInfo(thisCPD *CPD) error {
 	return nil
 }
 
+func getDiskStatus(newStatus *CPDStatus) {
+	newStatus.DiskUsage = []disk.UsageStat{}
+	for _, partition := range partitions {
+		tmpDisk, err := disk.Usage(partition.Mountpoint)
+		if err != nil {
+			log.Println("Failed to obtain disk usage stats", err)
+		} else {
+			newStatus.DiskUsage = append(newStatus.DiskUsage, *tmpDisk)
+		}
+	}
+
+	ioCounters, err := disk.IOCounters()
+	if err != nil {
+		log.Println("Failed to obtain disk IO counters", err)
+		return
+	}
+
+	devices := []string{}
+	for device, _ := range ioCounters {
+		devices = append(devices, device)
+	}
+	sort.Strings(devices)
+	newStatus.DiskStat = []disk.IOCountersStat{}
+	for _, device := range devices {
+		newStatus.DiskStat = append(newStatus.DiskStat, ioCounters[device])
+	}
+}
+
 func StartStatMonitor(callback func(CPDStatus)) error {
 	newStatus := CPDStatus{}
-	partitions, err := disk.Partitions(false)
+	var err error
+	partitions, err = disk.Partitions(false)
 	if err != nil {
 		return err
 	}
@@ -66,28 +97,7 @@ func StartStatMonitor(callback func(CPDStatus)) error {
 		}
 
 		if MonitorDiskUsage {
-
-			newStatus.DiskUsage = []disk.UsageStat{}
-			for _, partition := range partitions {
-				var tmpDisk *disk.UsageStat
-				tmpDisk, err = disk.Usage(partition.Mountpoint)
-				if err != nil {
-					log.Println("Failed to obtain disk usage stats", err)
-				} else {
-					newStatus.DiskUsage = append(newStatus.DiskUsage, *tmpDisk)
-				}
-			}
-
-			ioCounters, err := disk.IOCounters()
-			if err != nil {
-				log.Println("Failed to obtain disk IO counters", err)
-			} else {
-				newStatus.DiskStat = []disk.IOCountersStat{}
-				for _, counter := range ioCounters {
-					newStatus.DiskStat = append(newStatus.DiskStat, counter)
-				}
-			}
-
+			getDiskStatus(&newStatus)
 		}
 
 		callback(newStatus)

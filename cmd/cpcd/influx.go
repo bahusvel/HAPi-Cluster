@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"math"
 	"reflect"
 
 	"github.com/bahusvel/ClusterPipe/common"
@@ -40,7 +40,10 @@ func treatValue(valueTable *map[string]interface{}, value reflect.Value, root st
 	default:
 		// NOTE influx bullshit, doing weird stuff with ints
 		if value.Type().ConvertibleTo(FLOAT_TYPE) {
-			(*valueTable)[root] = value.Convert(FLOAT_TYPE).Interface()
+			floatVal := value.Convert(FLOAT_TYPE).Interface().(float64)
+			if !math.IsNaN(floatVal) {
+				(*valueTable)[root] = floatVal
+			}
 		} else {
 			(*valueTable)[root] = value.Interface()
 		}
@@ -79,7 +82,7 @@ func InfluxInsert(cpd string, status common.CPDStatus) error {
 	// Create a point and add to batch
 	tags := map[string]string{"host": cpd}
 	fields := TraverseParamTree(status)
-	log.Println(fields)
+	//log.Println(fields)
 	pt, err := client.NewPoint("node_load", tags, fields, status.LastCheckin)
 	if err != nil {
 		return err
