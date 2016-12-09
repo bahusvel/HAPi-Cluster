@@ -25,6 +25,13 @@ func main() {
 			if err != nil {
 				return err
 			}
+			common.MonitorDiskUsage = true
+			go common.StartStatMonitor(func(status common.CPDStatus) {
+				err := InfluxInsert("controller", status)
+				if err != nil {
+					log.Println("Failed to insert controller status to influx", err)
+				}
+			})
 		}
 		err := Start()
 		if err != nil {

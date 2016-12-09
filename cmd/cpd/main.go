@@ -59,6 +59,7 @@ func Run(task common.PreparedTask) error {
 }
 
 func reportStatus(status common.CPDStatus) {
+	thisCPD.CurrentStatus = &status
 	_, err := controller.Call("updateCPD", thisCPD.Host, status)
 	if err != nil {
 		log.Println("Error updating status", err)
@@ -88,7 +89,7 @@ func main() {
 
 		go common.RunPipeServer()
 		go Start()
-		err := GatherHostInfo()
+		err := common.GatherHostInfo(&thisCPD)
 		if err != nil {
 			return err
 		}
@@ -105,7 +106,7 @@ func main() {
 			}
 			time.Sleep(1 * time.Second)
 		}
-		go StartStatMonitor(reportStatus)
+		go common.StartStatMonitor(reportStatus)
 		for {
 			time.Sleep(1 * time.Second)
 		}
