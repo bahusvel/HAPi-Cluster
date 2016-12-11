@@ -1,6 +1,7 @@
 ifeq ($(CPD_PLATFORM),rpi3)
 	CPD_ENV= GOOS=linux GOARCH=arm GOARM=7
 endif
+
 ifeq ($(CPD_PLATFORM),linux_amd64)
 	CPD_ENV= GOOS=linux GOARCH=amd64
 endif
@@ -9,6 +10,7 @@ ifeq ($(CPCD_PLATFORM),linux_amd64)
 	CPCD_ENV= GOOS=linux GOARCH=amd64
 endif
 
+LD_FLAGS=--ldflags '-s -w ' # reduce binary size
 CPCTL_ENV=
 CONTROLLER_IP=192.168.7.28
 
@@ -23,13 +25,13 @@ ssh_id:
 	ssh-copy-id root@$(CONTROLLER_IP)
 
 cpd:
-	cd cmd/cpd && $(CPD_ENV) go build -o ../../build/cpd
+	cd cmd/cpd && $(CPD_ENV) go build $(LD_FLAGS) -o ../../build/cpd
 
 cpcd:
 	cd cmd/cpcd && $(CPCD_ENV) go build -o ../../build/cpcd
 
 cpctl:
-	cd cmd/cpctl && $(CPCTL_ENV) go build -o ../../build/cpctl
+	cd cmd/cpctl && $(CPCTL_ENV) go build $(LD_FLAGS) -o ../../build/cpctl
 
 build: clean cpd cpcd cpctl
 

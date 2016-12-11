@@ -16,18 +16,7 @@ func ScheduleTask(job common.Job, task *common.PreparedTask) error {
 	if len(nodes) == 0 {
 		return fmt.Errorf("Cluster does not have any nodes")
 	}
-	coreCount := 0
-	for _, node := range nodes {
-		coreCount += len(node.CPUInfo)
-	}
-	scheduleCore := counter % coreCount
-	for _, node := range nodes {
-		scheduleCore -= len(node.CPUInfo)
-		if scheduleCore <= 0 {
-			task.Node = node.Host
-			break
-		}
-	}
+	task.Node = nodes[counter%len(nodes)].Host
 	return nil
 }
 
