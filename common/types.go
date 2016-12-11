@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/shirou/gopsutil/cpu"
+	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
 	"github.com/shirou/gopsutil/mem"
 	"github.com/shirou/gopsutil/net"
@@ -67,6 +68,8 @@ type CPDStatus struct {
 	CPUTime     []cpu.TimesStat
 	MemStat     mem.VirtualMemoryStat
 	NetStat     net.IOCountersStat
+	DiskUsage   []disk.UsageStat
+	DiskStat    []disk.IOCountersStat
 }
 
 type CPD struct {
