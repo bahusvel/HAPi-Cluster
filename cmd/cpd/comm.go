@@ -16,49 +16,35 @@ func init() {
 	kissrpc.RegisterType(common.CPDStatus{})
 }
 
-func receiveTask(tasks []common.PreparedTask) error {
+func receiveTask(task common.Task) error {
 	log.Println("Received connection from CPD")
-	for _, task := range tasks {
-		err := Run(task)
-		if err != nil {
-			return err
-		}
-	}
-	return nil
-}
-
-func jobStat(job string) []common.PreparedTask {
-	procMutex.RLock()
-	defer procMutex.RUnlock()
-	return processes[job]
-}
-
-func jobKill(job string) {
-	procMutex.Lock()
-	defer procMutex.Unlock()
-	for _, task := range processes[job] {
-		task.Process.Process.Kill()
-	}
-}
-
-func makeFifo(pipe common.FIFO) error {
-	var err error
-	if pipe.Node == thisCPD.Host {
-		err = pipe.MakeLocal()
-	} else {
-		err = pipe.MakeRemote()
-	}
+	err := Run(task)
 	if err != nil {
-		log.Println("Error creating pipe", err)
 		return err
 	}
 	return nil
 }
 
+func taskStat(id common.TaskID) common.Task {
+	procMutex.RLock()
+	defer procMutex.RUnlock()
+	return processes[id]
+}
+
+func taskKill(id common.TaskID) {
+	procMutex.Lock()
+	defer procMutex.Unlock()
+	if task, ok := processes[id]; ok {
+		task.Process.Process.Kill()
+	} else {
+		log.Println("Attempting to kill task that does not exist", id)
+	}
+}
+
 func Start() error {
 	server := kissrpc.NewServer(COM_PORT)
 	server.AddFunc("receiveTask", receiveTask)
-	server.AddFunc("jobStat", jobStat)
-	server.AddFunc("jobKill", jobKill)
+	server.AddFunc("taskStat", taskStat)
+	server.AddFunc("taskKill", taskKill)
 	return server.Start()
 }

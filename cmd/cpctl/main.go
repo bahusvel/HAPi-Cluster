@@ -17,7 +17,7 @@ var controller *kissrpc.Client
 
 func init() {
 	kissrpc.RegisterType([]*common.CPD{})
-	kissrpc.RegisterType(common.Job{})
+	kissrpc.RegisterType(common.Task{})
 }
 
 func checkCluster() {
@@ -69,19 +69,17 @@ func NodeStatus(c *cli.Context) error {
 	return nil
 }
 
-func ScheduleJob(c *cli.Context) error {
-	if c.String("job") == "" {
-		return cli.NewExitError("You must specify a job to schedule -j", -1)
+func Exec(c *cli.Context) error {
+	if !c.Args().Present() {
+		return cli.NewExitError("Command to execute was not specified", -1)
 	}
-	job, err := ReadJobFile(c.String("job"))
+	task := common.Task{Command: c.Args().First(), Args: []string(c.Args())[1:]}
+	tskInter, err := controller.Call1("prepareTask", task)
 	if err != nil {
 		return err
 	}
-	err = controller.CallError("scheduleJob", job)
-	if err != nil {
-		return err
-	}
-	return nil
+	taskID := tskInter.(common.Task)
+	return err
 }
 
 func main() {
@@ -96,13 +94,17 @@ func main() {
 			Action: NodeStatus,
 		},
 		{
-			Name: "start",
+			Name: "exec",
 			Flags: []cli.Flag{
 				cli.StringFlag{
-					Name: "job, j",
+					Name: "sched, s",
+				},
+				cli.IntSliceFlag{
+					Name:  "stdio, i",
+					Value: &cli.IntSlice{0, 1, 2},
 				},
 			},
-			Action: ScheduleJob,
+			Action: Exec,
 		},
 		{
 			Name: "kill",

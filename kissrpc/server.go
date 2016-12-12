@@ -151,7 +151,13 @@ func (this Client) Call(name string, args ...interface{}) ([]interface{}, error)
 	if err != nil {
 		return []interface{}{}, err
 	}
-	return retValues.ReturnValues, nil
+	rets := retValues.ReturnValues
+	if len(rets) != 0 {
+		if err, ok := rets[len(rets)-1].(error); ok {
+			return rets[:len(rets)-1], err
+		}
+	}
+	return rets, nil
 }
 
 func (this Client) Call1(name string, args ...interface{}) (interface{}, error) {
@@ -174,21 +180,4 @@ func (this Client) Call2(name string, args ...interface{}) (interface{}, interfa
 		return []interface{}{}, []interface{}{}, fmt.Errorf("Unexpected return values for %s expected %d got %d", name, 2, len(rets))
 	}
 	return rets[0], rets[1], err
-}
-
-func (this Client) CallError(name string, args ...interface{}) error {
-	var rets []interface{}
-	var err error
-	rets, err = this.Call(name, args...)
-	if err != nil {
-		return err
-	}
-	if len(rets) != 1 {
-		return fmt.Errorf("Unexpected return values for %s expected %d got %d", name, 1, len(rets))
-	}
-	if err1, ok := rets[0].(error); !ok {
-		return fmt.Errorf("Return type is not error")
-	} else {
-		return err1
-	}
 }

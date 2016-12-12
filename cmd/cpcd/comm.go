@@ -16,8 +16,8 @@ func ping() {
 	log.Println("Got ping")
 }
 
-func scheduleJob(job common.Job) error {
-	return nil
+func prepareTask(task common.Task) (common.Task, error) {
+	return task, nil
 }
 
 func jobStatus(job string) string {
@@ -49,7 +49,7 @@ func Start() error {
 	server := kissrpc.NewServer(COM_PORT)
 	server.AddFunc("ping", ping)
 	server.AddFunc("registerCPD", registerCPD)
-	server.AddFunc("scheduleJob", scheduleJob)
+	server.AddFunc("prepareTask", prepareTask)
 	server.AddFunc("updateCPD", updateCPD)
 	server.AddFunc("getNodes", getNodes)
 	return server.Start()
