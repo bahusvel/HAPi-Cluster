@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"os/exec"
 
 	"github.com/bahusvel/ClusterPipe/common"
 	"github.com/bahusvel/ClusterPipe/kissrpc"
@@ -16,19 +18,35 @@ func init() {
 	kissrpc.RegisterType(common.CPDStatus{})
 }
 
-func receiveTask(task common.Task) error {
-	log.Println("Received connection from CPD")
-	err := Run(task)
+func prepareTask(task common.Task) error {
+	if !task.TID.IsValid() {
+		return fmt.Errorf("Invalid task id")
+	}
+	cmd := exec.Command(task.Command, task.Args...)
+	procMutex.Lock()
+	defer procMutex.Unlock()
+	scheduledTask := common.ScheduleTask{Task: task, Process: cmd}
+	processes[task.TID] = &scheduledTask
+	return nil
+}
+
+func startTask(taskID common.TaskID) error {
+	if !taskID.IsValid() {
+		return fmt.Errorf("Invalid task id")
+	}
+	task, ok := processes[taskID]
+	if !ok {
+		return fmt.Errorf("Invalid task id")
+	}
+	task.Process.Stderr = task.Stdio.Stderr
+	task.Process.Stdin = task.Stdio.Stdin
+	task.Process.Stdout = task.Stdio.Stdout
+
+	err := task.Process.Start()
 	if err != nil {
 		return err
 	}
 	return nil
-}
-
-func taskStat(id common.TaskID) common.Task {
-	procMutex.RLock()
-	defer procMutex.RUnlock()
-	return processes[id]
 }
 
 func taskKill(id common.TaskID) {
@@ -43,8 +61,8 @@ func taskKill(id common.TaskID) {
 
 func Start() error {
 	server := kissrpc.NewServer(COM_PORT)
-	server.AddFunc("receiveTask", receiveTask)
-	server.AddFunc("taskStat", taskStat)
+	server.AddFunc("prepareTask", prepareTask)
+	server.AddFunc("startTask", startTask)
 	server.AddFunc("taskKill", taskKill)
 	return server.Start()
 }

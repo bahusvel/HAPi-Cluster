@@ -17,6 +17,8 @@ func ping() {
 }
 
 func prepareTask(task common.Task) (common.Task, error) {
+	scheduler := schedulers[task.Scheduler]
+	scheduler.Schedule(&task)
 	return task, nil
 }
 

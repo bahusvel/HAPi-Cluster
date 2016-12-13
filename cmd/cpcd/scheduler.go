@@ -6,15 +6,18 @@ import (
 	"github.com/bahusvel/ClusterPipe/common"
 )
 
+var rrScheduler = &RoundRobin{}
+
 var schedulers = map[string]Scheduler{
-	"rr":       &RoundRobin{},
+	"":         rrScheduler,
+	"rr":       rrScheduler,
 	"lowest":   NoneScheduler{},
 	"specific": NoneScheduler{},
 	"same":     NoneScheduler{},
 }
 
 type Scheduler interface {
-	Schedule(task *common.Task, schedulingArgs []interface{}) error
+	Schedule(task *common.Task) error
 }
 
 var taskIDIncrement = common.TaskID(0)
@@ -23,7 +26,7 @@ type RoundRobin struct {
 	counter int
 }
 
-func (this *RoundRobin) Schedule(task *common.Task, schedulingArgs []interface{}) error {
+func (this *RoundRobin) Schedule(task *common.Task) error {
 	nodes := getNodes()
 	if len(nodes) == 0 {
 		return fmt.Errorf("Cluster does not have any nodes")
@@ -38,6 +41,6 @@ func (this *RoundRobin) Schedule(task *common.Task, schedulingArgs []interface{}
 type NoneScheduler struct {
 }
 
-func (this NoneScheduler) Schedule(task *common.Task, schedulingArgs []interface{}) error {
+func (this NoneScheduler) Schedule(task *common.Task) error {
 	return fmt.Errorf("This method is not yet implemented")
 }

@@ -1,6 +1,7 @@
 package common
 
 import (
+	"io"
 	"os/exec"
 	"time"
 
@@ -23,13 +24,17 @@ func (id TaskID) IsValid() bool {
 }
 
 type Task struct {
-	TID     TaskID
-	Node    string
-	Command string
-	Args    []string
-	Stdin   *FIFO
-	Stdout  *FIFO
-	Stderr  *FIFO
+	TID            TaskID
+	Node           string
+	Scheduler      string
+	SchedulingArgs []interface{}
+	Command        string
+	Args           []string
+}
+
+type ScheduleTask struct {
+	Task
+	Stdio   TaskPipes
 	Process *exec.Cmd
 }
 
@@ -50,4 +55,10 @@ type CPD struct {
 	CPUInfo       []cpu.InfoStat
 	NetInfo       []net.InterfaceStat
 	CurrentStatus *CPDStatus
+}
+
+type TaskPipes struct {
+	Stderr io.WriteCloser
+	Stdout io.WriteCloser
+	Stdin  io.ReadCloser
 }
