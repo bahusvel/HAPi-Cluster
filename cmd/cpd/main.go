@@ -17,9 +17,9 @@ var controller *kissrpc.Client
 var thisCPD = common.CPD{}
 
 var procMutex = sync.RWMutex{}
-var processes = map[string][]common.PreparedTask{}
+var processes = map[common.TaskID]common.Task{}
 
-func Run(task common.PreparedTask) error {
+func Run(task common.Task) error {
 	cmd := exec.Command(task.Command, task.Args...)
 	var err error
 	if task.Stderr != nil {
@@ -49,11 +49,6 @@ func Run(task common.PreparedTask) error {
 		return err
 	}
 	task.Process = cmd
-	if jobProcs, ok := processes[task.Job]; !ok {
-		processes[task.Job] = []common.PreparedTask{task}
-	} else {
-		processes[task.Job] = append(jobProcs, task)
-	}
 
 	return nil
 }
