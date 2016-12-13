@@ -23,7 +23,7 @@ type PipeRequest struct {
 	Flags uint8
 }
 
-func MakeRemote(node string, task TaskID) (*TaskPipes, error) {
+func RemotePipe(node string, task TaskID) (*TaskPipes, error) {
 	pipes := &TaskPipes{}
 	request := PipeRequest{TID: task}
 	if request.Flags == 0 {

@@ -111,6 +111,14 @@ func (this *Server) Start() error {
 	return s.ListenAndServe()
 }
 
+func SingleCall(address string, name string, args ...interface{}) ([]interface{}, error) {
+	client, err := NewClient(address)
+	if err != nil {
+		return []interface{}{}, err
+	}
+	return client.Call(name, args...)
+}
+
 type Client struct {
 	serverUrl string
 }
@@ -175,7 +183,7 @@ func (this Client) Call1(name string, args ...interface{}) (interface{}, error) 
 func (this Client) Call2(name string, args ...interface{}) (interface{}, interface{}, error) {
 	var rets []interface{}
 	var err error
-	rets, err = this.Call(name, args)
+	rets, err = this.Call(name, args...)
 	if len(rets) != 2 {
 		return []interface{}{}, []interface{}{}, fmt.Errorf("Unexpected return values for %s expected %d got %d", name, 2, len(rets))
 	}

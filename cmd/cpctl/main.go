@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io"
 	"log"
 	"os"
 	"reflect"
@@ -78,7 +79,19 @@ func Exec(c *cli.Context) error {
 	if err != nil {
 		return err
 	}
-	taskID := tskInter.(common.Task)
+	task = tskInter.(common.Task)
+	pipes, err := common.RemotePipe(task.Node, task.TID)
+	if err != nil {
+		return err
+	}
+	_, err = kissrpc.SingleCall(task.Node, "startTask", task.TID)
+	if err != nil {
+		return err
+	}
+	go io.Copy(os.Stdout, pipes.Stdout)
+	go io.Copy(os.Stderr, pipes.Stderr)
+	_, err = io.Copy(pipes.Stdin, os.Stdin)
+
 	return err
 }
 

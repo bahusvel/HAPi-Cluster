@@ -58,7 +58,7 @@ type CPD struct {
 }
 
 type TaskPipes struct {
-	Stderr io.WriteCloser
-	Stdout io.WriteCloser
-	Stdin  io.ReadCloser
+	Stderr io.ReadWriteCloser
+	Stdout io.ReadWriteCloser
+	Stdin  io.ReadWriteCloser
 }
