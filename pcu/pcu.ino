@@ -1,9 +1,11 @@
+//#pragma GCC diagnostic ignored "-Wwrite-strings"
+
 #define CMD_SIZE 100
 
 typedef void (*cmdHandler)(char *params);
 
 struct command {
-	char *name;
+	const char *name;
 	cmdHandler handle;
 };
 
@@ -55,7 +57,7 @@ command cmdTable[]{
 };
 
 void rxCommand(char *cmd) {
-	for (int i = 0; i < sizeof(cmdTable)/sizeof(struct command); i++) {
+	for (unsigned int i = 0; i < sizeof(cmdTable)/sizeof(struct command); i++) {
 		if (hasPrefix(cmd, cmdTable[i].name)){
 			cmdTable[i].handle(cmd + strlen(cmdTable[i].name));
 			return;
