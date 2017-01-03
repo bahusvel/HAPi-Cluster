@@ -8,13 +8,17 @@
 #define BITTEST(a, b) ((a)[BITSLOT(b)] & BITMASK(b))
 
 #define CMD_SIZE 100
-#define NUM_UNITS 4
+
+// Use this to define the mapping between logical units and physical registers
+const byte UNIT_MAP[] = {0,1,2,3,4,5,6,7};
+
+#define NUM_UNITS ((int)sizeof(UNIT_MAP))
 
 #define LATCH_PIN 8
 #define CLOCK_PIN 12
 #define DATA_PIN 11
 
-byte  power_set[BITNSLOTS(NUM_UNITS)];
+byte power_set[BITNSLOTS(NUM_UNITS)];
 
 typedef void (*cmdHandler)(char *params);
 
@@ -36,7 +40,7 @@ void onCmd(char *args) {
 	Serial.print("OK Turning ");
 	Serial.print(slot);
 	Serial.println(" on");
-  BITSET(power_set, slot-1);
+  BITSET(power_set, UNIT_MAP[slot-1]);
 }
 
 void offCmd(char *args) {
@@ -48,7 +52,7 @@ void offCmd(char *args) {
 	Serial.print("OK Turning ");
 	Serial.print(slot);
 	Serial.println(" off");
-  BITCLEAR(power_set, slot-1);
+  BITCLEAR(power_set, UNIT_MAP[slot-1]);
 }
 
 void testCmd(char *args) {
@@ -57,7 +61,7 @@ void testCmd(char *args) {
     Serial.println("ERR Invalid slot");
     return;
   }
-  if (BITTEST(power_set, slot-1)) {
+  if (BITTEST(power_set, UNIT_MAP[slot-1])) {
     Serial.println("OK ON");
   } else {
     Serial.println("OK OFF");
