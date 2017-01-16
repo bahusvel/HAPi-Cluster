@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"os"
-	"os/exec"
 	"sync"
 	"time"
 
@@ -17,41 +16,7 @@ var controller *kissrpc.Client
 var thisCPD = common.CPD{}
 
 var procMutex = sync.RWMutex{}
-var processes = map[common.TaskID]common.Task{}
-
-func Run(task common.Task) error {
-	cmd := exec.Command(task.Command, task.Args...)
-	var err error
-	if task.Stderr != nil {
-		cmd.Stderr, err = task.Stderr.Open()
-		if err != nil {
-			return err
-		}
-	}
-	if task.Stdout != nil {
-		cmd.Stdout, err = task.Stdout.Open()
-		if err != nil {
-			return err
-		}
-	}
-	if task.Stdin != nil {
-		cmd.Stdin, err = task.Stdin.Open()
-		if err != nil {
-			return err
-		}
-	}
-
-	procMutex.Lock()
-	defer procMutex.Unlock()
-
-	err = cmd.Start()
-	if err != nil {
-		return err
-	}
-	task.Process = cmd
-
-	return nil
-}
+var processes = map[common.TaskID]*common.ScheduleTask{}
 
 func reportStatus(status common.CPDStatus) {
 	thisCPD.CurrentStatus = &status
@@ -82,7 +47,7 @@ func main() {
 			return cli.NewExitError("You must specify local address -i", -1)
 		}
 
-		go common.RunPipeServer()
+		go RunPipeServer()
 		go Start()
 		err := common.GatherHostInfo(&thisCPD)
 		if err != nil {

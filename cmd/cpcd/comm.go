@@ -17,6 +17,12 @@ func ping() {
 }
 
 func prepareTask(task common.Task) (common.Task, error) {
+	scheduler := schedulers[task.Scheduler]
+	scheduler.Schedule(&task)
+	_, err := kissrpc.SingleCall(task.Node, "prepareTask", task)
+	if err != nil {
+		return task, err
+	}
 	return task, nil
 }
 

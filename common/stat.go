@@ -8,6 +8,7 @@ import (
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
+	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/mem"
 	"github.com/shirou/gopsutil/net"
 )
@@ -78,6 +79,10 @@ func StartStatMonitor(callback func(CPDStatus)) error {
 		}
 		newStatus.CPUUtil = cpuA[0]
 		newStatus.CPUTime, err = cpu.Times(true)
+		if err != nil {
+			log.Println("Failed to obtain CPU load", err)
+		}
+		newStatus.LoadStat, err = load.Avg()
 		if err != nil {
 			log.Println("Failed to obtain CPU load", err)
 		}
