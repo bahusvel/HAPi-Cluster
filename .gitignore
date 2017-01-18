@@ -1,6 +1,7 @@
 build/*
 
-# Eagle rubbish 
+# Eagle rubbish
+eagle.epf
 *.s#?
 *.b#?
 *.l#?
