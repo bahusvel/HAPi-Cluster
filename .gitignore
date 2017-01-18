@@ -1,1 +1,7 @@
 build/*
+
+# Eagle rubbish 
+*.s#?
+*.b#?
+*.l#?
+*.lck
