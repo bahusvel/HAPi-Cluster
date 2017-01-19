@@ -14,7 +14,3 @@ echo "$1" > etc/hostname
 echo "127.0.1.1 $1" >> etc/hosts
 echo "/nfs/$1 *(rw,async,no_subtree_check,no_root_squash)" >> /etc/exports
 exportfs -ra
-cd /tftpboot/
-cp -r reference $1
-sed -i "s,:/nfs/client01,:/nfs/$1," $1/cmdline.txt
-

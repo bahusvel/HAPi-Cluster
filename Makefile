@@ -33,14 +33,25 @@ cpcd:
 cpctl:
 	cd cmd/cpctl && $(CPCTL_ENV) go build $(LD_FLAGS) -o ../../build/cpctl
 
-build: clean cpd cpcd cpctl
+cpifd:
+	cd cmd/cpifd && $(CPCD_ENV) go build $(LD_FLAGS) -o ../../build/cpifd
+
+build: clean cpd cpcd cpctl cpifd
+
+test_boot:
+	make build CPCD_PLATFORM=linux_amd64
+	ssh root@$(CONTROLLER_IP) "killall cpifd" || true
+	scp build/cpifd root@$(CONTROLLER_IP):/usr/bin/
+	#ssh root@192.168.7.22 "reboot"
+	ssh root@$(CONTROLLER_IP) "/usr/bin/cpifd"
+
 
 test_cluster:
 	make build CPD_PLATFORM=rpi3 CPCD_PLATFORM=linux_amd64
 	ssh root@$(CONTROLLER_IP) "killall cpcd" || true
 	scp build/cpcd root@$(CONTROLLER_IP):/usr/bin/
 	scp build/cpd root@$(CONTROLLER_IP):/nfs/share/bin/
-	ssh root@$(CONTROLLER_IP) "/usr/bin/cpcd -i"
+	ssh root@$(CONTROLLER_IP) "nohup /usr/bin/cpcd -i" &
 	ssh root@$(CONTROLLER_IP) "bash distribute_cpd.sh"
 
 test_ctl_cd: build
