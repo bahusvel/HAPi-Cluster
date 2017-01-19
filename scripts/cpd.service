@@ -1,0 +1,10 @@
+[Unit]
+Description=ClusterPipe Daemon 
+After=network.target mnt-share.mount
+
+[Service]
+ExecStart=/mnt/share/bin/cpd -c 192.168.7.28:3334
+ExecStop=/usr/bin/killall cpd
+
+[Install]
+WantedBy=multi-user.target
