@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"os/exec"
 	"sync"
 	"time"
 
@@ -26,6 +27,15 @@ func reportStatus(status common.CPDStatus) {
 	}
 }
 
+func getIP() string {
+	cmd := exec.Command("bash", "-c", "hostname  -I | cut -f1 -d' '")
+	data, err := cmd.Output()
+	if err != nil {
+		return ""
+	}
+	return string(data[:len(data)-1])
+}
+
 func main() {
 	app := cli.NewApp()
 	app.Flags = []cli.Flag{
@@ -44,7 +54,8 @@ func main() {
 			return cli.NewExitError("You must specify controller address -c", -1)
 		}
 		if thisCPD.Host == "" {
-			return cli.NewExitError("You must specify local address -i", -1)
+			log.Println("Trying to determine IP address automatically")
+			thisCPD.Host = getIP()
 		}
 
 		go RunPipeServer()
