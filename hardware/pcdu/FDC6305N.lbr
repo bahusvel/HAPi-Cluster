@@ -83,6 +83,7 @@
 <smd name="S2" x="2.2" y="1.5" dx="1.27" dy="0.7" layer="1"/>
 <smd name="G2" x="2.2" y="2.45" dx="1.27" dy="0.7" layer="1"/>
 <text x="-0.3" y="3.2" size="0.5" layer="21">&gt;NAME</text>
+<circle x="1.27" y="0.5" radius="0.2" width="0" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -101,7 +102,7 @@
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FDC6305N">
+<deviceset name="FDC6305N" prefix="M">
 <gates>
 <gate name="G$1" symbol="FDC6305N" x="0" y="0"/>
 </gates>

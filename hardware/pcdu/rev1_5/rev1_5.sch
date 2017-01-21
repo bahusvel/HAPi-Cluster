@@ -369,6 +369,7 @@ Based on the following sources:
 <smd name="S2" x="2.2" y="1.5" dx="1.27" dy="0.7" layer="1"/>
 <smd name="G2" x="2.2" y="2.45" dx="1.27" dy="0.7" layer="1"/>
 <text x="-0.3" y="3.2" size="0.5" layer="21">&gt;NAME</text>
+<circle x="1.27" y="0.5" radius="0.2" width="0" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -387,7 +388,7 @@ Based on the following sources:
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="FDC6305N">
+<deviceset name="FDC6305N" prefix="M">
 <gates>
 <gate name="G$1" symbol="FDC6305N" x="0" y="0"/>
 </gates>
@@ -630,7 +631,6 @@ Grid 5.00 mm&lt;p&gt;
 <part name="U$1" library="FDC6305N" deviceset="FDC6305N" device=""/>
 <part name="U$2" library="FDC6305N" deviceset="FDC6305N" device=""/>
 <part name="X5" library="con-wago-500" deviceset="W237-102" device=""/>
-<part name="X6" library="con-wago-500" deviceset="W237-102" device=""/>
 <part name="X7" library="con-molex" deviceset="22-23-2041" device=""/>
 <part name="X8" library="con-molex" deviceset="22-23-2041" device=""/>
 <part name="X1" library="MUSBV" deviceset="MUSBV" device=""/>
@@ -648,8 +648,6 @@ Grid 5.00 mm&lt;p&gt;
 <instance part="U$2" gate="G$1" x="116.84" y="50.8" rot="R270"/>
 <instance part="X5" gate="-1" x="30.48" y="15.24"/>
 <instance part="X5" gate="-2" x="30.48" y="10.16"/>
-<instance part="X6" gate="-1" x="30.48" y="2.54"/>
-<instance part="X6" gate="-2" x="30.48" y="-2.54"/>
 <instance part="X7" gate="-1" x="33.02" y="-12.7" rot="MR0"/>
 <instance part="X7" gate="-2" x="33.02" y="-15.24" rot="MR0"/>
 <instance part="X7" gate="-3" x="33.02" y="-17.78" rot="MR0"/>
@@ -672,11 +670,6 @@ Grid 5.00 mm&lt;p&gt;
 <pinref part="X5" gate="-1" pin="KL"/>
 <wire x1="35.56" y1="15.24" x2="38.1" y2="15.24" width="0.1524" layer="91"/>
 <label x="38.1" y="15.24" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="X6" gate="-1" pin="KL"/>
-<wire x1="35.56" y1="2.54" x2="38.1" y2="2.54" width="0.1524" layer="91"/>
-<label x="38.1" y="2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="IC1" gate="P" pin="VCC"/>
@@ -724,11 +717,6 @@ Grid 5.00 mm&lt;p&gt;
 <pinref part="X5" gate="-2" pin="KL"/>
 <wire x1="35.56" y1="10.16" x2="38.1" y2="10.16" width="0.1524" layer="91"/>
 <label x="38.1" y="10.16" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="X6" gate="-2" pin="KL"/>
-<wire x1="35.56" y1="-2.54" x2="38.1" y2="-2.54" width="0.1524" layer="91"/>
-<label x="38.1" y="-2.54" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="X7" gate="-4" pin="S"/>
