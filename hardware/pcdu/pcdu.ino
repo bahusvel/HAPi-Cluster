@@ -14,9 +14,9 @@ const byte UNIT_MAP[] = {0,1,2,3,4,5,6,7};
 
 #define NUM_UNITS ((int)sizeof(UNIT_MAP))
 
-#define LATCH_PIN 8
-#define CLOCK_PIN 12
-#define DATA_PIN 11
+#define LATCH_PIN 4
+#define CLOCK_PIN 3
+#define DATA_PIN 5
 
 byte power_set[BITNSLOTS(NUM_UNITS)];
 
@@ -43,6 +43,11 @@ void onCmd(char *args) {
   BITSET(power_set, UNIT_MAP[slot-1]);
 }
 
+void ionCmd(char *args) {
+  onCmd(args);
+  commitCmd((char *)"ion");
+}
+
 void offCmd(char *args) {
 	int slot = atoi(args);
 	if (!slot || slot > NUM_UNITS) {
@@ -53,6 +58,11 @@ void offCmd(char *args) {
 	Serial.print(slot);
 	Serial.println(" off");
   BITCLEAR(power_set, UNIT_MAP[slot-1]);
+}
+
+void ioffCmd(char *args) {
+  offCmd(args);
+  commitCmd((char *)"ioff");
 }
 
 void testCmd(char *args) {
@@ -104,7 +114,9 @@ void setup() {
 
 command cmdTable[]{
 	{"on", onCmd},
+  {"ion", ionCmd},
 	{"off", offCmd},
+  {"ioff", ioffCmd},
   {"commit", commitCmd},
 	{"test", testCmd},
 	{"alloff", alloffCmd},
@@ -135,7 +147,5 @@ void loop() {
 		} else {
 			cmdbuf[ctr++] = inchar;
 		}
-		digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
-		delay(10);
 	}
 }
