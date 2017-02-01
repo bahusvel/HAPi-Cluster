@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -61,6 +62,12 @@ func NodeStatus(c *cli.Context) error {
 		log.Println("Error getting nodes", err)
 		return err
 	}
+	if c.Bool("list") {
+		for _, node := range nodes.([]*common.CPD) {
+			fmt.Println(node.Host)
+		}
+		return nil
+	}
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader(fieldNames(common.CPD{}))
 	for _, node := range nodes.([]*common.CPD) {
@@ -105,6 +112,11 @@ func main() {
 		{
 			Name:   "nodes",
 			Action: NodeStatus,
+			Flags: []cli.Flag{
+				cli.BoolFlag{
+					Name: "list, l",
+				},
+			},
 		},
 		{
 			Name: "exec",

@@ -23,7 +23,8 @@ func reportStatus(status common.CPDStatus) {
 	thisCPD.CurrentStatus = &status
 	_, err := controller.Call("updateCPD", thisCPD.Host, status)
 	if err != nil {
-		log.Println("Error updating status", err)
+		log.Println("Failed to update status, reregister with controller")
+		registerWithController()
 	}
 }
 
@@ -34,6 +35,19 @@ func getIP() string {
 		return ""
 	}
 	return string(data[:len(data)-1])
+}
+
+func registerWithController() {
+	var err error
+	for {
+		_, err = controller.Call("registerCPD", &thisCPD)
+		if err != nil {
+			log.Println("Error registering CPD", err)
+		} else {
+			break
+		}
+		time.Sleep(1 * time.Second)
+	}
 }
 
 func main() {
@@ -68,15 +82,7 @@ func main() {
 		if err != nil {
 			return err
 		}
-		for {
-			_, err = controller.Call("registerCPD", &thisCPD)
-			if err != nil {
-				log.Println("Error registering CPD", err)
-			} else {
-				break
-			}
-			time.Sleep(1 * time.Second)
-		}
+		registerWithController()
 		go common.StartStatMonitor(reportStatus)
 		for {
 			time.Sleep(1 * time.Second)

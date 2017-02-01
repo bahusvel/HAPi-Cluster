@@ -17,6 +17,22 @@ var FLOAT_TYPE = reflect.TypeOf(float64(0))
 
 var influxClient client.Client
 
+func queryDB(clnt client.Client, cmd string) (res []client.Result, err error) {
+	q := client.Query{
+		Command:  cmd,
+		Database: DB,
+	}
+	if response, err := clnt.Query(q); err == nil {
+		if response.Error() != nil {
+			return res, response.Error()
+		}
+		res = response.Results
+	} else {
+		return res, err
+	}
+	return res, nil
+}
+
 func InfluxInit() error {
 	// Make client
 	var err error
@@ -26,7 +42,8 @@ func InfluxInit() error {
 	if err != nil {
 		return err
 	}
-	return nil
+	_, err = queryDB(influxClient, "DROP MEASUREMENT node_load")
+	return err
 }
 
 func treatValue(valueTable *map[string]interface{}, value reflect.Value, root string) {
