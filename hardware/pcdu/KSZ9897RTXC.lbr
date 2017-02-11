@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
@@ -71,146 +71,426 @@
 </layers>
 <library>
 <packages>
+<package name="KSZ9897RTXC">
+<wire x1="-7" y1="-7" x2="7" y2="-7" width="0.127" layer="21"/>
+<wire x1="7" y1="-7" x2="7" y2="7" width="0.127" layer="21"/>
+<wire x1="7" y1="7" x2="-7" y2="7" width="0.127" layer="21"/>
+<wire x1="-7" y1="7" x2="-7" y2="-7" width="0.127" layer="21"/>
+<smd name="CRS7" x="0.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RXD7_3" x="0.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RX_ER7" x="1" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="VDDIO@2" x="1.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RX_DV7/CRS_DV7/RX_CTL7" x="1.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RX_CLK7/REFCLKO7" x="2.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@4" x="2.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD7_0" x="3" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD7_1" x="3.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD7_2" x="3.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD7_3" x="4.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RESET_N" x="-6.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="COL7" x="4.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TX_ER7" x="5" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TX_EN7/TX_CTL7" x="5.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TX_CLK7/REFCLKI7" x="5.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RXD6_0" x="6.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RXD7_2" x="-0.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RXD7_1" x="-0.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="RXD7_0" x="-1" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="GND" x="-1.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED4_0" x="-1.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED4_1" x="-2.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@5" x="-2.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED3_0" x="-3" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED3_1" x="-3.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="NC@1" x="-3.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED2_0" x="-4.2" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED2_1" x="-4.6" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="PME_N" x="-5" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="INTRP_N" x="-5.4" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="CLKO_25_125" x="-5.8" y="7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2M_B" x="-0.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2P_B" x="-0.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2P_C" x="0.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2M_C" x="0.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL@3" x="1" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2P_D" x="1.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2M_D" x="1.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDH@2" x="2.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@2" x="2.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3P_A" x="3" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3M_A" x="3.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3P_B" x="3.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3M_B" x="4.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3P_C" x="4.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3M_C" x="5" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL@4" x="5.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3P_D" x="5.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL@2" x="-1" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2M_A" x="-1.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX3M_D" x="6.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX2P_A" x="-1.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@1" x="-2.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDH@1" x="-2.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1M_D" x="-3" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1P_D" x="-3.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1M_C" x="-3.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1P_C" x="-4.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1M_B" x="-4.6" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1P_B" x="-5" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL@1" x="-5.4" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1M_A" x="-5.8" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRX1P_A" x="-6.2" y="-7.6" dx="1.6" dy="0.25" layer="1" rot="R90"/>
+<smd name="TX_EN6/TX_CTL6" x="7.6" y="0.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TX_CLK6/REFCLKI6" x="7.6" y="-0.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TX_ER6" x="7.6" y="0.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="COL6" x="7.6" y="1" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXD6_3" x="7.6" y="1.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXD6_2" x="7.6" y="1.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXD6_1" x="7.6" y="2.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXD6_0" x="7.6" y="2.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="DVDDL@3" x="7.6" y="3" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RX_CLK6/REFCLKO6" x="7.6" y="3.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RX_DV6/CRS_DV6/RX_CTL6" x="7.6" y="3.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RX_ER6" x="7.6" y="4.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="CRS6" x="7.6" y="4.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="VDDIO@1" x="7.6" y="5" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RXD6_3" x="7.6" y="5.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RXD6_2" x="7.6" y="5.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="RXD6_1" x="7.6" y="6.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="GND@3" x="7.6" y="-0.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="GND@2" x="7.6" y="-1" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="DVDDL" x="7.6" y="-1.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDH" x="7.6" y="-1.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4M_D" x="7.6" y="-2.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4P_D" x="7.6" y="-2.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDL@6" x="7.6" y="-3" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4M_C" x="7.6" y="-3.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4P_C" x="7.6" y="-3.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4M_B" x="7.6" y="-4.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4P_B" x="7.6" y="-4.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDL@5" x="7.6" y="-5" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4M_A" x="7.6" y="-5.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX4P_A" x="7.6" y="-5.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDH@3" x="7.6" y="-6.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5P_A" x="-7.6" y="0.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5M_A" x="-7.6" y="-0.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDH@4" x="-7.6" y="0.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="DVDDL@7" x="-7.6" y="1" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="GND@5" x="-7.6" y="1.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="NC@2" x="-7.6" y="1.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="GND@4" x="-7.6" y="2.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="LED1_1" x="-7.6" y="2.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="LED1_0" x="-7.6" y="3" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="DVDDL@6" x="-7.6" y="3.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="LED5_1" x="-7.6" y="3.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="LED5_0" x="-7.6" y="4.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="SCL/MDC" x="-7.6" y="4.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="SCS_N" x="-7.6" y="5" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="VDDIO" x="-7.6" y="5.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="SDI/SDA/MDIO" x="-7.6" y="5.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="SDO" x="-7.6" y="6.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDL@7" x="-7.6" y="-0.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5P_B" x="-7.6" y="-1" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5M_B" x="-7.6" y="-1.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5P_C" x="-7.6" y="-1.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5M_C" x="-7.6" y="-2.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDL" x="-7.6" y="-2.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5P_D" x="-7.6" y="-3" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="TXRX5M_D" x="-7.6" y="-3.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDH@5" x="-7.6" y="-3.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="GND@6" x="-7.6" y="-4.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDL@8" x="-7.6" y="-4.6" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="XO" x="-7.6" y="-5" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="XI" x="-7.6" y="-5.4" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="ISET" x="-7.6" y="-5.8" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<smd name="AVDDH@6" x="-7.6" y="-6.2" dx="1.6" dy="0.25" layer="1" rot="R180"/>
+<text x="-3.2" y="5.2" size="1.27" layer="21">&gt;NAME</text>
+<circle x="-5.8" y="-5.8" radius="0.282840625" width="0.127" layer="21"/>
+<smd name="GND@1" x="0" y="0" dx="10" dy="10" layer="1"/>
+</package>
 </packages>
 <symbols>
 <symbol name="KSZ9897RTXC">
-<pin name="TXRX1P_A" x="-30.48" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1M_A" x="-27.94" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDL@1" x="-25.4" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1P_B" x="-22.86" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1M_B" x="-20.32" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1P_C" x="-17.78" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1M_C" x="-15.24" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1P_D" x="-12.7" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX1M_D" x="-10.16" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDH@1" x="-7.62" y="2.54" length="middle" rot="R90"/>
-<pin name="DVDDL@1" x="-5.08" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2P_A" x="-2.54" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2M_A" x="0" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDL@2" x="2.54" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2P_B" x="5.08" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2M_B" x="7.62" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2P_C" x="10.16" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2M_C" x="12.7" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDL@3" x="15.24" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2P_D" x="17.78" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX2M_D" x="20.32" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDH@2" x="22.86" y="2.54" length="middle" rot="R90"/>
-<pin name="DVDDL@2" x="25.4" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3P_A" x="27.94" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3M_A" x="30.48" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3P_B" x="33.02" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3M_B" x="35.56" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3P_C" x="38.1" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3M_C" x="40.64" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDL@4" x="43.18" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3P_D" x="45.72" y="2.54" length="middle" rot="R90"/>
-<pin name="TXRX3M_D" x="48.26" y="2.54" length="middle" rot="R90"/>
-<pin name="AVDDH@3" x="66.04" y="22.86" length="middle" rot="R180"/>
-<pin name="TXRX4P_A" x="66.04" y="25.4" length="middle" rot="R180"/>
-<pin name="TXRX4M_A" x="66.04" y="27.94" length="middle" rot="R180"/>
-<pin name="AVDDL@5" x="66.04" y="30.48" length="middle" rot="R180"/>
-<pin name="TXRX4P_B" x="66.04" y="33.02" length="middle" rot="R180"/>
-<pin name="TXRX4M_B" x="66.04" y="35.56" length="middle" rot="R180"/>
-<pin name="TXRX4P_C" x="66.04" y="38.1" length="middle" rot="R180"/>
-<pin name="TXRX4M_C" x="66.04" y="40.64" length="middle" rot="R180"/>
-<pin name="AVDDL@6" x="66.04" y="43.18" length="middle" rot="R180"/>
-<pin name="TXRX4P_D" x="66.04" y="45.72" length="middle" rot="R180"/>
-<pin name="TXRX4M_D" x="66.04" y="48.26" length="middle" rot="R180"/>
-<pin name="AVDDH@4" x="66.04" y="50.8" length="middle" rot="R180"/>
-<pin name="DVDDL@3" x="66.04" y="53.34" length="middle" rot="R180"/>
-<pin name="GND@2" x="66.04" y="55.88" length="middle" rot="R180"/>
-<pin name="GND@3" x="66.04" y="58.42" length="middle" rot="R180"/>
-<pin name="TX_CLK6/REFCLKI6" x="66.04" y="60.96" length="middle" rot="R180"/>
-<pin name="TX_EN6/TX_CTL6" x="66.04" y="63.5" length="middle" rot="R180"/>
-<pin name="TX_ER6" x="66.04" y="66.04" length="middle" rot="R180"/>
-<pin name="COL6" x="66.04" y="68.58" length="middle" rot="R180"/>
-<pin name="TXD6_3" x="66.04" y="71.12" length="middle" rot="R180"/>
-<pin name="TXD6_2" x="66.04" y="73.66" length="middle" rot="R180"/>
-<pin name="TXD6_1" x="66.04" y="76.2" length="middle" rot="R180"/>
-<pin name="TXD6_0" x="66.04" y="78.74" length="middle" rot="R180"/>
-<pin name="DVDDL@4" x="66.04" y="81.28" length="middle" rot="R180"/>
-<pin name="RX_CLK6/REFCLKO6" x="66.04" y="83.82" length="middle" rot="R180"/>
-<pin name="RX_DV6/CRS_DV6/RX_CTL6" x="66.04" y="86.36" length="middle" rot="R180"/>
-<pin name="RX_ER6" x="66.04" y="88.9" length="middle" rot="R180"/>
-<pin name="CRS6" x="66.04" y="91.44" length="middle" rot="R180"/>
-<pin name="VDDIO@1" x="66.04" y="93.98" length="middle" rot="R180"/>
-<pin name="RXD6_3" x="66.04" y="96.52" length="middle" rot="R180"/>
-<pin name="RXD6_2" x="66.04" y="99.06" length="middle" rot="R180"/>
-<pin name="RXD6_1" x="66.04" y="101.6" length="middle" rot="R180"/>
-<pin name="RXD6_0" x="50.8" y="121.92" length="middle" rot="R270"/>
-<pin name="TX_CLK7/REFCLKI7" x="48.26" y="121.92" length="middle" rot="R270"/>
-<pin name="TX_EN7/TX_CTL7" x="45.72" y="121.92" length="middle" rot="R270"/>
-<pin name="TX_ER7" x="43.18" y="121.92" length="middle" rot="R270"/>
-<pin name="COL7" x="40.64" y="121.92" length="middle" rot="R270"/>
-<pin name="TXD7_3" x="38.1" y="121.92" length="middle" rot="R270"/>
-<pin name="TXD7_2" x="35.56" y="121.92" length="middle" rot="R270"/>
-<pin name="TXD7_1" x="33.02" y="121.92" length="middle" rot="R270"/>
-<pin name="TXD7_0" x="30.48" y="121.92" length="middle" rot="R270"/>
-<pin name="DVDDL@5" x="27.94" y="121.92" length="middle" rot="R270"/>
-<pin name="RX_CLK7/REFCLKO7" x="25.4" y="121.92" length="middle" rot="R270"/>
-<pin name="RX_DV7/CRS_DV7/RX_CTL7" x="22.86" y="121.92" length="middle" rot="R270"/>
-<pin name="VDDIO@2" x="20.32" y="121.92" length="middle" rot="R270"/>
-<pin name="RX_ER7" x="17.78" y="121.92" length="middle" rot="R270"/>
-<pin name="CRS7" x="15.24" y="121.92" length="middle" rot="R270"/>
-<pin name="RXD7_3" x="12.7" y="121.92" length="middle" rot="R270"/>
-<pin name="RXD7_2" x="10.16" y="121.92" length="middle" rot="R270"/>
-<pin name="RXD7_1" x="7.62" y="121.92" length="middle" rot="R270"/>
-<pin name="RXD7_0" x="5.08" y="121.92" length="middle" rot="R270"/>
-<pin name="GND@4" x="2.54" y="121.92" length="middle" rot="R270"/>
-<pin name="LED4_0" x="0" y="121.92" length="middle" rot="R270"/>
-<pin name="LED4_1" x="-2.54" y="121.92" length="middle" rot="R270"/>
-<pin name="DVDDL@6" x="-5.08" y="121.92" length="middle" rot="R270"/>
-<pin name="LED3_0" x="-7.62" y="121.92" length="middle" rot="R270"/>
-<pin name="LED3_1" x="-10.16" y="121.92" length="middle" rot="R270"/>
-<pin name="NC@1" x="-12.7" y="121.92" length="middle" rot="R270"/>
-<pin name="LED2_0" x="-15.24" y="121.92" length="middle" rot="R270"/>
-<pin name="LED2_1" x="-17.78" y="121.92" length="middle" rot="R270"/>
-<pin name="PME_N" x="-20.32" y="121.92" length="middle" rot="R270"/>
-<pin name="INTRP_N" x="-22.86" y="121.92" length="middle" rot="R270"/>
-<pin name="CLKO_25_125" x="-25.4" y="121.92" length="middle" rot="R270"/>
-<pin name="RESET_N" x="-27.94" y="121.92" length="middle" rot="R270"/>
-<pin name="SDO" x="-43.18" y="101.6" length="middle"/>
-<pin name="SDI/SDA/MDIO" x="-43.18" y="99.06" length="middle"/>
-<pin name="SCS_N" x="-43.18" y="93.98" length="middle"/>
-<pin name="SCL_MDC" x="-43.18" y="91.44" length="middle"/>
-<pin name="LED5_0" x="-43.18" y="88.9" length="middle"/>
-<pin name="LED5_1" x="-43.18" y="86.36" length="middle"/>
-<pin name="DVDDL@7" x="-43.18" y="83.82" length="middle"/>
-<pin name="LED1_0" x="-43.18" y="81.28" length="middle"/>
-<pin name="LED1_1" x="-43.18" y="78.74" length="middle"/>
-<pin name="GND@5" x="-43.18" y="76.2" length="middle"/>
-<pin name="NC@2" x="-43.18" y="73.66" length="middle"/>
-<pin name="GND@6" x="-43.18" y="71.12" length="middle"/>
-<pin name="DVDDL@8" x="-43.18" y="68.58" length="middle"/>
-<pin name="AVDDH@5" x="-43.18" y="66.04" length="middle"/>
-<pin name="TXRX5P_A" x="-43.18" y="63.5" length="middle"/>
-<pin name="TXRX5M_A" x="-43.18" y="60.96" length="middle"/>
-<pin name="AVDDL@7" x="-43.18" y="58.42" length="middle"/>
-<pin name="TXRX5P_B" x="-43.18" y="55.88" length="middle"/>
-<pin name="TXRX5M_B" x="-43.18" y="53.34" length="middle"/>
-<pin name="TXRX5P_C" x="-43.18" y="50.8" length="middle"/>
-<pin name="TXRD5M_C" x="-43.18" y="48.26" length="middle"/>
-<pin name="AVDDL@8" x="-43.18" y="45.72" length="middle"/>
-<pin name="TXRX5P_D" x="-43.18" y="43.18" length="middle"/>
-<pin name="TXRD5M_D" x="-43.18" y="40.64" length="middle"/>
-<pin name="AVDDH@6" x="-43.18" y="38.1" length="middle"/>
-<pin name="GND@7" x="-43.18" y="35.56" length="middle"/>
-<pin name="AVDDL@9" x="-43.18" y="33.02" length="middle"/>
-<pin name="XO" x="-43.18" y="30.48" length="middle"/>
-<pin name="XI" x="-43.18" y="27.94" length="middle"/>
-<pin name="ISET" x="-43.18" y="25.4" length="middle"/>
-<pin name="AVDDH@7" x="-43.18" y="22.86" length="middle"/>
-<pin name="VDDIO@3" x="-43.18" y="96.52" length="middle"/>
-<wire x1="-38.1" y1="7.62" x2="60.96" y2="7.62" width="0.254" layer="94"/>
-<wire x1="60.96" y1="7.62" x2="60.96" y2="116.84" width="0.254" layer="94"/>
-<wire x1="60.96" y1="116.84" x2="-38.1" y2="116.84" width="0.254" layer="94"/>
-<wire x1="-38.1" y1="116.84" x2="-38.1" y2="7.62" width="0.254" layer="94"/>
-<text x="-2.54" y="76.2" size="6.4516" layer="94">&gt;NAME</text>
-<pin name="GND@1" x="53.34" y="2.54" length="middle" rot="R90"/>
+<pin name="TXRX1P_A" x="-43.18" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1M_A" x="-40.64" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDL@1" x="-38.1" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1P_B" x="-35.56" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1M_B" x="-33.02" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1P_C" x="-30.48" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1M_C" x="-27.94" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1P_D" x="-25.4" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX1M_D" x="-22.86" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDH@1" x="-20.32" y="-53.34" length="middle" rot="R90"/>
+<pin name="DVDDL@1" x="-17.78" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2P_A" x="-15.24" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2M_A" x="-12.7" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDL@2" x="-10.16" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2P_B" x="-7.62" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2M_B" x="-5.08" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2P_C" x="-2.54" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2M_C" x="0" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDL@3" x="2.54" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2P_D" x="5.08" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX2M_D" x="7.62" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDH@2" x="10.16" y="-53.34" length="middle" rot="R90"/>
+<pin name="DVDDL@2" x="12.7" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3P_A" x="15.24" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3M_A" x="17.78" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3P_B" x="20.32" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3M_B" x="22.86" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3P_C" x="25.4" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3M_C" x="27.94" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDL@4" x="30.48" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3P_D" x="33.02" y="-53.34" length="middle" rot="R90"/>
+<pin name="TXRX3M_D" x="35.56" y="-53.34" length="middle" rot="R90"/>
+<pin name="AVDDH@3" x="53.34" y="-33.02" length="middle" rot="R180"/>
+<pin name="TXRX4P_A" x="53.34" y="-30.48" length="middle" rot="R180"/>
+<pin name="TXRX4M_A" x="53.34" y="-27.94" length="middle" rot="R180"/>
+<pin name="AVDDL@5" x="53.34" y="-25.4" length="middle" rot="R180"/>
+<pin name="TXRX4P_B" x="53.34" y="-22.86" length="middle" rot="R180"/>
+<pin name="TXRX4M_B" x="53.34" y="-20.32" length="middle" rot="R180"/>
+<pin name="TXRX4P_C" x="53.34" y="-17.78" length="middle" rot="R180"/>
+<pin name="TXRX4M_C" x="53.34" y="-15.24" length="middle" rot="R180"/>
+<pin name="AVDDL@6" x="53.34" y="-12.7" length="middle" rot="R180"/>
+<pin name="TXRX4P_D" x="53.34" y="-10.16" length="middle" rot="R180"/>
+<pin name="TXRX4M_D" x="53.34" y="-7.62" length="middle" rot="R180"/>
+<pin name="AVDDH@4" x="53.34" y="-5.08" length="middle" rot="R180"/>
+<pin name="DVDDL@3" x="53.34" y="-2.54" length="middle" rot="R180"/>
+<pin name="GND@2" x="53.34" y="0" length="middle" rot="R180"/>
+<pin name="GND@3" x="53.34" y="2.54" length="middle" rot="R180"/>
+<pin name="TX_CLK6/REFCLKI6" x="53.34" y="5.08" length="middle" rot="R180"/>
+<pin name="TX_EN6/TX_CTL6" x="53.34" y="7.62" length="middle" rot="R180"/>
+<pin name="TX_ER6" x="53.34" y="10.16" length="middle" rot="R180"/>
+<pin name="COL6" x="53.34" y="12.7" length="middle" rot="R180"/>
+<pin name="TXD6_3" x="53.34" y="15.24" length="middle" rot="R180"/>
+<pin name="TXD6_2" x="53.34" y="17.78" length="middle" rot="R180"/>
+<pin name="TXD6_1" x="53.34" y="20.32" length="middle" rot="R180"/>
+<pin name="TXD6_0" x="53.34" y="22.86" length="middle" rot="R180"/>
+<pin name="DVDDL@4" x="53.34" y="25.4" length="middle" rot="R180"/>
+<pin name="RX_CLK6/REFCLKO6" x="53.34" y="27.94" length="middle" rot="R180"/>
+<pin name="RX_DV6/CRS_DV6/RX_CTL6" x="53.34" y="30.48" length="middle" rot="R180"/>
+<pin name="RX_ER6" x="53.34" y="33.02" length="middle" rot="R180"/>
+<pin name="CRS6" x="53.34" y="35.56" length="middle" rot="R180"/>
+<pin name="VDDIO@1" x="53.34" y="38.1" length="middle" rot="R180"/>
+<pin name="RXD6_3" x="53.34" y="40.64" length="middle" rot="R180"/>
+<pin name="RXD6_2" x="53.34" y="43.18" length="middle" rot="R180"/>
+<pin name="RXD6_1" x="53.34" y="45.72" length="middle" rot="R180"/>
+<pin name="RXD6_0" x="38.1" y="66.04" length="middle" rot="R270"/>
+<pin name="TX_CLK7/REFCLKI7" x="35.56" y="66.04" length="middle" rot="R270"/>
+<pin name="TX_EN7/TX_CTL7" x="33.02" y="66.04" length="middle" rot="R270"/>
+<pin name="TX_ER7" x="30.48" y="66.04" length="middle" rot="R270"/>
+<pin name="COL7" x="27.94" y="66.04" length="middle" rot="R270"/>
+<pin name="TXD7_3" x="25.4" y="66.04" length="middle" rot="R270"/>
+<pin name="TXD7_2" x="22.86" y="66.04" length="middle" rot="R270"/>
+<pin name="TXD7_1" x="20.32" y="66.04" length="middle" rot="R270"/>
+<pin name="TXD7_0" x="17.78" y="66.04" length="middle" rot="R270"/>
+<pin name="DVDDL@5" x="15.24" y="66.04" length="middle" rot="R270"/>
+<pin name="RX_CLK7/REFCLKO7" x="12.7" y="66.04" length="middle" rot="R270"/>
+<pin name="RX_DV7/CRS_DV7/RX_CTL7" x="10.16" y="66.04" length="middle" rot="R270"/>
+<pin name="VDDIO@2" x="7.62" y="66.04" length="middle" rot="R270"/>
+<pin name="RX_ER7" x="5.08" y="66.04" length="middle" rot="R270"/>
+<pin name="CRS7" x="2.54" y="66.04" length="middle" rot="R270"/>
+<pin name="RXD7_3" x="0" y="66.04" length="middle" rot="R270"/>
+<pin name="RXD7_2" x="-2.54" y="66.04" length="middle" rot="R270"/>
+<pin name="RXD7_1" x="-5.08" y="66.04" length="middle" rot="R270"/>
+<pin name="RXD7_0" x="-7.62" y="66.04" length="middle" rot="R270"/>
+<pin name="GND@4" x="-10.16" y="66.04" length="middle" rot="R270"/>
+<pin name="LED4_0" x="-12.7" y="66.04" length="middle" rot="R270"/>
+<pin name="LED4_1" x="-15.24" y="66.04" length="middle" rot="R270"/>
+<pin name="DVDDL@6" x="-17.78" y="66.04" length="middle" rot="R270"/>
+<pin name="LED3_0" x="-20.32" y="66.04" length="middle" rot="R270"/>
+<pin name="LED3_1" x="-22.86" y="66.04" length="middle" rot="R270"/>
+<pin name="NC@1" x="-25.4" y="66.04" length="middle" rot="R270"/>
+<pin name="LED2_0" x="-27.94" y="66.04" length="middle" rot="R270"/>
+<pin name="LED2_1" x="-30.48" y="66.04" length="middle" rot="R270"/>
+<pin name="PME_N" x="-33.02" y="66.04" length="middle" rot="R270"/>
+<pin name="INTRP_N" x="-35.56" y="66.04" length="middle" rot="R270"/>
+<pin name="CLKO_25_125" x="-38.1" y="66.04" length="middle" rot="R270"/>
+<pin name="RESET_N" x="-40.64" y="66.04" length="middle" rot="R270"/>
+<pin name="SDO" x="-55.88" y="45.72" length="middle"/>
+<pin name="SDI/SDA/MDIO" x="-55.88" y="43.18" length="middle"/>
+<pin name="SCS_N" x="-55.88" y="38.1" length="middle"/>
+<pin name="SCL_MDC" x="-55.88" y="35.56" length="middle"/>
+<pin name="LED5_0" x="-55.88" y="33.02" length="middle"/>
+<pin name="LED5_1" x="-55.88" y="30.48" length="middle"/>
+<pin name="DVDDL@7" x="-55.88" y="27.94" length="middle"/>
+<pin name="LED1_0" x="-55.88" y="25.4" length="middle"/>
+<pin name="LED1_1" x="-55.88" y="22.86" length="middle"/>
+<pin name="GND@5" x="-55.88" y="20.32" length="middle"/>
+<pin name="NC@2" x="-55.88" y="17.78" length="middle"/>
+<pin name="GND@6" x="-55.88" y="15.24" length="middle"/>
+<pin name="DVDDL@8" x="-55.88" y="12.7" length="middle"/>
+<pin name="AVDDH@5" x="-55.88" y="10.16" length="middle"/>
+<pin name="TXRX5P_A" x="-55.88" y="7.62" length="middle"/>
+<pin name="TXRX5M_A" x="-55.88" y="5.08" length="middle"/>
+<pin name="AVDDL@7" x="-55.88" y="2.54" length="middle"/>
+<pin name="TXRX5P_B" x="-55.88" y="0" length="middle"/>
+<pin name="TXRX5M_B" x="-55.88" y="-2.54" length="middle"/>
+<pin name="TXRX5P_C" x="-55.88" y="-5.08" length="middle"/>
+<pin name="TXRX5M_C" x="-55.88" y="-7.62" length="middle"/>
+<pin name="AVDDL@8" x="-55.88" y="-10.16" length="middle"/>
+<pin name="TXRX5P_D" x="-55.88" y="-12.7" length="middle"/>
+<pin name="TXRX5M_D" x="-55.88" y="-15.24" length="middle"/>
+<pin name="AVDDH@6" x="-55.88" y="-17.78" length="middle"/>
+<pin name="GND@7" x="-55.88" y="-20.32" length="middle"/>
+<pin name="AVDDL@9" x="-55.88" y="-22.86" length="middle"/>
+<pin name="XO" x="-55.88" y="-25.4" length="middle"/>
+<pin name="XI" x="-55.88" y="-27.94" length="middle"/>
+<pin name="ISET" x="-55.88" y="-30.48" length="middle"/>
+<pin name="AVDDH@7" x="-55.88" y="-33.02" length="middle"/>
+<pin name="VDDIO@3" x="-55.88" y="40.64" length="middle"/>
+<wire x1="-50.8" y1="-48.26" x2="48.26" y2="-48.26" width="0.254" layer="94"/>
+<wire x1="48.26" y1="-48.26" x2="48.26" y2="60.96" width="0.254" layer="94"/>
+<wire x1="48.26" y1="60.96" x2="-50.8" y2="60.96" width="0.254" layer="94"/>
+<wire x1="-50.8" y1="60.96" x2="-50.8" y2="-48.26" width="0.254" layer="94"/>
+<text x="-15.24" y="20.32" size="6.4516" layer="94">&gt;NAME</text>
+<pin name="GND@1" x="40.64" y="-53.34" length="middle" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
+<deviceset name="KSZ9897RTXC" prefix="SW">
+<gates>
+<gate name="G$1" symbol="KSZ9897RTXC" x="-7.62" y="-58.42"/>
+</gates>
+<devices>
+<device name="" package="KSZ9897RTXC">
+<connects>
+<connect gate="G$1" pin="AVDDH@1" pad="AVDDH"/>
+<connect gate="G$1" pin="AVDDH@2" pad="AVDDH@1"/>
+<connect gate="G$1" pin="AVDDH@3" pad="AVDDH@2"/>
+<connect gate="G$1" pin="AVDDH@4" pad="AVDDH@3"/>
+<connect gate="G$1" pin="AVDDH@5" pad="AVDDH@4"/>
+<connect gate="G$1" pin="AVDDH@6" pad="AVDDH@5"/>
+<connect gate="G$1" pin="AVDDH@7" pad="AVDDH@6"/>
+<connect gate="G$1" pin="AVDDL@1" pad="AVDDL"/>
+<connect gate="G$1" pin="AVDDL@2" pad="AVDDL@1"/>
+<connect gate="G$1" pin="AVDDL@3" pad="AVDDL@2"/>
+<connect gate="G$1" pin="AVDDL@4" pad="AVDDL@3"/>
+<connect gate="G$1" pin="AVDDL@5" pad="AVDDL@4"/>
+<connect gate="G$1" pin="AVDDL@6" pad="AVDDL@5"/>
+<connect gate="G$1" pin="AVDDL@7" pad="AVDDL@6"/>
+<connect gate="G$1" pin="AVDDL@8" pad="AVDDL@7"/>
+<connect gate="G$1" pin="AVDDL@9" pad="AVDDL@8"/>
+<connect gate="G$1" pin="CLKO_25_125" pad="CLKO_25_125"/>
+<connect gate="G$1" pin="COL6" pad="COL6"/>
+<connect gate="G$1" pin="COL7" pad="COL7"/>
+<connect gate="G$1" pin="CRS6" pad="CRS6"/>
+<connect gate="G$1" pin="CRS7" pad="CRS7"/>
+<connect gate="G$1" pin="DVDDL@1" pad="DVDDL"/>
+<connect gate="G$1" pin="DVDDL@2" pad="DVDDL@1"/>
+<connect gate="G$1" pin="DVDDL@3" pad="DVDDL@2"/>
+<connect gate="G$1" pin="DVDDL@4" pad="DVDDL@3"/>
+<connect gate="G$1" pin="DVDDL@5" pad="DVDDL@4"/>
+<connect gate="G$1" pin="DVDDL@6" pad="DVDDL@5"/>
+<connect gate="G$1" pin="DVDDL@7" pad="DVDDL@6"/>
+<connect gate="G$1" pin="DVDDL@8" pad="DVDDL@7"/>
+<connect gate="G$1" pin="GND@1" pad="GND"/>
+<connect gate="G$1" pin="GND@2" pad="GND@1"/>
+<connect gate="G$1" pin="GND@3" pad="GND@2"/>
+<connect gate="G$1" pin="GND@4" pad="GND@3"/>
+<connect gate="G$1" pin="GND@5" pad="GND@4"/>
+<connect gate="G$1" pin="GND@6" pad="GND@5"/>
+<connect gate="G$1" pin="GND@7" pad="GND@6"/>
+<connect gate="G$1" pin="INTRP_N" pad="INTRP_N"/>
+<connect gate="G$1" pin="ISET" pad="ISET"/>
+<connect gate="G$1" pin="LED1_0" pad="LED1_0"/>
+<connect gate="G$1" pin="LED1_1" pad="LED1_1"/>
+<connect gate="G$1" pin="LED2_0" pad="LED2_0"/>
+<connect gate="G$1" pin="LED2_1" pad="LED2_1"/>
+<connect gate="G$1" pin="LED3_0" pad="LED3_0"/>
+<connect gate="G$1" pin="LED3_1" pad="LED3_1"/>
+<connect gate="G$1" pin="LED4_0" pad="LED4_0"/>
+<connect gate="G$1" pin="LED4_1" pad="LED4_1"/>
+<connect gate="G$1" pin="LED5_0" pad="LED5_0"/>
+<connect gate="G$1" pin="LED5_1" pad="LED5_1"/>
+<connect gate="G$1" pin="NC@1" pad="NC@1"/>
+<connect gate="G$1" pin="NC@2" pad="NC@2"/>
+<connect gate="G$1" pin="PME_N" pad="PME_N"/>
+<connect gate="G$1" pin="RESET_N" pad="RESET_N"/>
+<connect gate="G$1" pin="RXD6_0" pad="RXD6_0"/>
+<connect gate="G$1" pin="RXD6_1" pad="RXD6_1"/>
+<connect gate="G$1" pin="RXD6_2" pad="RXD6_2"/>
+<connect gate="G$1" pin="RXD6_3" pad="RXD6_3"/>
+<connect gate="G$1" pin="RXD7_0" pad="RXD7_0"/>
+<connect gate="G$1" pin="RXD7_1" pad="RXD7_1"/>
+<connect gate="G$1" pin="RXD7_2" pad="RXD7_2"/>
+<connect gate="G$1" pin="RXD7_3" pad="RXD7_3"/>
+<connect gate="G$1" pin="RX_CLK6/REFCLKO6" pad="RX_CLK6/REFCLKO6"/>
+<connect gate="G$1" pin="RX_CLK7/REFCLKO7" pad="RX_CLK7/REFCLKO7"/>
+<connect gate="G$1" pin="RX_DV6/CRS_DV6/RX_CTL6" pad="RX_DV6/CRS_DV6/RX_CTL6"/>
+<connect gate="G$1" pin="RX_DV7/CRS_DV7/RX_CTL7" pad="RX_DV7/CRS_DV7/RX_CTL7"/>
+<connect gate="G$1" pin="RX_ER6" pad="RX_ER6"/>
+<connect gate="G$1" pin="RX_ER7" pad="RX_ER7"/>
+<connect gate="G$1" pin="SCL_MDC" pad="SCL/MDC"/>
+<connect gate="G$1" pin="SCS_N" pad="SCS_N"/>
+<connect gate="G$1" pin="SDI/SDA/MDIO" pad="SDI/SDA/MDIO"/>
+<connect gate="G$1" pin="SDO" pad="SDO"/>
+<connect gate="G$1" pin="TXD6_0" pad="TXD6_0"/>
+<connect gate="G$1" pin="TXD6_1" pad="TXD6_1"/>
+<connect gate="G$1" pin="TXD6_2" pad="TXD6_2"/>
+<connect gate="G$1" pin="TXD6_3" pad="TXD6_3"/>
+<connect gate="G$1" pin="TXD7_0" pad="TXD7_0"/>
+<connect gate="G$1" pin="TXD7_1" pad="TXD7_1"/>
+<connect gate="G$1" pin="TXD7_2" pad="TXD7_2"/>
+<connect gate="G$1" pin="TXD7_3" pad="TXD7_3"/>
+<connect gate="G$1" pin="TXRX1M_A" pad="TXRX1M_A"/>
+<connect gate="G$1" pin="TXRX1M_B" pad="TXRX1M_B"/>
+<connect gate="G$1" pin="TXRX1M_C" pad="TXRX1M_C"/>
+<connect gate="G$1" pin="TXRX1M_D" pad="TXRX1M_D"/>
+<connect gate="G$1" pin="TXRX1P_A" pad="TXRX1P_A"/>
+<connect gate="G$1" pin="TXRX1P_B" pad="TXRX1P_B"/>
+<connect gate="G$1" pin="TXRX1P_C" pad="TXRX1P_C"/>
+<connect gate="G$1" pin="TXRX1P_D" pad="TXRX1P_D"/>
+<connect gate="G$1" pin="TXRX2M_A" pad="TXRX2M_A"/>
+<connect gate="G$1" pin="TXRX2M_B" pad="TXRX2M_B"/>
+<connect gate="G$1" pin="TXRX2M_C" pad="TXRX2M_C"/>
+<connect gate="G$1" pin="TXRX2M_D" pad="TXRX2M_D"/>
+<connect gate="G$1" pin="TXRX2P_A" pad="TXRX2P_A"/>
+<connect gate="G$1" pin="TXRX2P_B" pad="TXRX2P_B"/>
+<connect gate="G$1" pin="TXRX2P_C" pad="TXRX2P_C"/>
+<connect gate="G$1" pin="TXRX2P_D" pad="TXRX2P_D"/>
+<connect gate="G$1" pin="TXRX3M_A" pad="TXRX3M_A"/>
+<connect gate="G$1" pin="TXRX3M_B" pad="TXRX3M_B"/>
+<connect gate="G$1" pin="TXRX3M_C" pad="TXRX3M_C"/>
+<connect gate="G$1" pin="TXRX3M_D" pad="TXRX3M_D"/>
+<connect gate="G$1" pin="TXRX3P_A" pad="TXRX3P_A"/>
+<connect gate="G$1" pin="TXRX3P_B" pad="TXRX3P_B"/>
+<connect gate="G$1" pin="TXRX3P_C" pad="TXRX3P_C"/>
+<connect gate="G$1" pin="TXRX3P_D" pad="TXRX3P_D"/>
+<connect gate="G$1" pin="TXRX4M_A" pad="TXRX4M_A"/>
+<connect gate="G$1" pin="TXRX4M_B" pad="TXRX4M_B"/>
+<connect gate="G$1" pin="TXRX4M_C" pad="TXRX4M_C"/>
+<connect gate="G$1" pin="TXRX4M_D" pad="TXRX4M_D"/>
+<connect gate="G$1" pin="TXRX4P_A" pad="TXRX4P_A"/>
+<connect gate="G$1" pin="TXRX4P_B" pad="TXRX4P_B"/>
+<connect gate="G$1" pin="TXRX4P_C" pad="TXRX4P_C"/>
+<connect gate="G$1" pin="TXRX4P_D" pad="TXRX4P_D"/>
+<connect gate="G$1" pin="TXRX5M_A" pad="TXRX5M_A"/>
+<connect gate="G$1" pin="TXRX5M_B" pad="TXRX5M_B"/>
+<connect gate="G$1" pin="TXRX5M_C" pad="TXRX5M_C"/>
+<connect gate="G$1" pin="TXRX5M_D" pad="TXRX5M_D"/>
+<connect gate="G$1" pin="TXRX5P_A" pad="TXRX5P_A"/>
+<connect gate="G$1" pin="TXRX5P_B" pad="TXRX5P_B"/>
+<connect gate="G$1" pin="TXRX5P_C" pad="TXRX5P_C"/>
+<connect gate="G$1" pin="TXRX5P_D" pad="TXRX5P_D"/>
+<connect gate="G$1" pin="TX_CLK6/REFCLKI6" pad="TX_CLK6/REFCLKI6"/>
+<connect gate="G$1" pin="TX_CLK7/REFCLKI7" pad="TX_CLK7/REFCLKI7"/>
+<connect gate="G$1" pin="TX_EN6/TX_CTL6" pad="TX_EN6/TX_CTL6"/>
+<connect gate="G$1" pin="TX_EN7/TX_CTL7" pad="TX_EN7/TX_CTL7"/>
+<connect gate="G$1" pin="TX_ER6" pad="TX_ER6"/>
+<connect gate="G$1" pin="TX_ER7" pad="TX_ER7"/>
+<connect gate="G$1" pin="VDDIO@1" pad="VDDIO"/>
+<connect gate="G$1" pin="VDDIO@2" pad="VDDIO@1"/>
+<connect gate="G$1" pin="VDDIO@3" pad="VDDIO@2"/>
+<connect gate="G$1" pin="XI" pad="XI"/>
+<connect gate="G$1" pin="XO" pad="XO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </drawing>
