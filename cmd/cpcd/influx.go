@@ -42,7 +42,7 @@ func InfluxInit() error {
 	if err != nil {
 		return err
 	}
-	_, err = queryDB(influxClient, "DROP MEASUREMENT node_load")
+	queryDB(influxClient, "DROP MEASUREMENT node_load")
 	return err
 }
 
