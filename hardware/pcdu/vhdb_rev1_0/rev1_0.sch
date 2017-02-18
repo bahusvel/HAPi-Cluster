@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.1">
+<eagle version="7.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -9816,6 +9816,226 @@ high speed (Philips)</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="KSZ9031RNX">
+<packages>
+<package name="KSZ9031RNX">
+<wire x1="-3.5" y1="-3.5" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="3.5" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
+<smd name="P_GND" x="0" y="0" dx="5.05" dy="5.05" layer="1"/>
+<smd name="RESET_N" x="0.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LDO_O" x="-0.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL_PLL" x="-0.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="XO" x="-1.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="XI" x="-1.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="NC@2" x="-2.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="ISET" x="-2.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="CLK125_NDO/LED_MODE" x="0.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDH@3" x="1.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@6" x="1.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="INT_N/PME_N2" x="2.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="MDIO" x="2.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD0" x="0.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@2" x="-0.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED1/PHYAD0/PME_N1" x="-0.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDH@1" x="-1.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED2/PHYAD1" x="-1.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@1" x="-2.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="NC@1" x="-2.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD1" x="0.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD2" x="1.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD3" x="1.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@3" x="2.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="GTX_CLK" x="2.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRXP_C" x="-3.375" y="-0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_B" x="-3.375" y="0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_B" x="-3.375" y="0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDL@1" x="-3.375" y="1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_A" x="-3.375" y="1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_A" x="-3.375" y="2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDH@1" x="-3.375" y="2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_C" x="-3.375" y="-0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDL@2" x="-3.375" y="-1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_D" x="-3.375" y="-1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_D" x="-3.375" y="-2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDH@2" x="-3.375" y="-2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDL@5" x="3.375" y="-0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD1/MODE1" x="3.375" y="0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD0/MODE0" x="3.375" y="0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RX_DV/CLK125_EN" x="3.375" y="1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDH@2" x="3.375" y="1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RX_CLK/PHYAD2" x="3.375" y="2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="MDC" x="3.375" y="2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="VSS" x="3.375" y="-0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD2/MODE2" x="3.375" y="-1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD3/MODE3" x="3.375" y="-1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDL@4" x="3.375" y="-2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TX_EN" x="3.375" y="-2.75" dx="0.65" dy="0.25" layer="1"/>
+<text x="-1.25" y="4" size="0.6096" layer="21">&gt;NAME</text>
+<circle x="-3.2" y="3.2" radius="0.1" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="KSZ9031RNX">
+<pin name="AVDDH@1" x="-35.56" y="27.94" length="middle"/>
+<pin name="TXRXP_A" x="35.56" y="15.24" length="middle" rot="R180"/>
+<pin name="TXRXM_A" x="35.56" y="12.7" length="middle" rot="R180"/>
+<pin name="AVDDL@1" x="-35.56" y="20.32" length="middle"/>
+<pin name="TXRXP_B" x="35.56" y="10.16" length="middle" rot="R180"/>
+<pin name="TXRXM_B" x="35.56" y="7.62" length="middle" rot="R180"/>
+<pin name="TXRXP_C" x="35.56" y="5.08" length="middle" rot="R180"/>
+<pin name="TXRXM_C" x="35.56" y="2.54" length="middle" rot="R180"/>
+<pin name="AVDDL@2" x="-35.56" y="17.78" length="middle"/>
+<pin name="TXRXP_D" x="35.56" y="0" length="middle" rot="R180"/>
+<pin name="TXRXM_D" x="35.56" y="-2.54" length="middle" rot="R180"/>
+<pin name="AVDDH@2" x="-35.56" y="25.4" length="middle"/>
+<pin name="NC@1" x="-15.24" y="35.56" length="middle" rot="R270"/>
+<pin name="DVDDL@1" x="-35.56" y="0" length="middle"/>
+<pin name="LED2/PHYAD1" x="35.56" y="20.32" length="middle" rot="R180"/>
+<pin name="DVDDH@1" x="-35.56" y="10.16" length="middle"/>
+<pin name="LED1/PHYAD0/PME_N1" x="35.56" y="17.78" length="middle" rot="R180"/>
+<pin name="DVDDL@2" x="-35.56" y="-2.54" length="middle"/>
+<pin name="TXD0" x="-7.62" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD1" x="-5.08" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD2" x="-2.54" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD3" x="0" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDL@3" x="-35.56" y="-5.08" length="middle"/>
+<pin name="GTX_CLK" x="25.4" y="-27.94" length="middle" rot="R90"/>
+<pin name="TX_EN" x="22.86" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDL@4" x="-35.56" y="-7.62" length="middle"/>
+<pin name="RXD3/MODE3" x="17.78" y="-27.94" length="middle" rot="R90"/>
+<pin name="RXD2/MODE2" x="15.24" y="-27.94" length="middle" rot="R90"/>
+<pin name="VSS" x="-35.56" y="-20.32" length="middle"/>
+<pin name="DVDDL@5" x="-35.56" y="-10.16" length="middle"/>
+<pin name="RXD1/MODE1" x="12.7" y="-27.94" length="middle" rot="R90"/>
+<pin name="RXD0/MODE0" x="10.16" y="-27.94" length="middle" rot="R90"/>
+<pin name="RX_DV/CLK125_EN" x="5.08" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDH@2" x="-35.56" y="7.62" length="middle"/>
+<pin name="RX_CLK/PHYAD2" x="7.62" y="-27.94" length="middle" rot="R90"/>
+<pin name="MDC" x="-15.24" y="-27.94" length="middle" rot="R90"/>
+<pin name="MDIO" x="-12.7" y="-27.94" length="middle" rot="R90"/>
+<pin name="INT_N/PME_N2" x="5.08" y="35.56" length="middle" rot="R270"/>
+<pin name="DVDDL@6" x="-35.56" y="-12.7" length="middle"/>
+<pin name="DVDDH@3" x="-35.56" y="5.08" length="middle"/>
+<pin name="CLK125_NDO/LED_MODE" x="2.54" y="35.56" length="middle" rot="R270"/>
+<pin name="RESET_N" x="0" y="35.56" length="middle" rot="R270"/>
+<pin name="LDO_O" x="-2.54" y="35.56" length="middle" rot="R270"/>
+<pin name="AVDDL_PLL" x="-35.56" y="15.24" length="middle"/>
+<pin name="XO" x="-5.08" y="35.56" length="middle" rot="R270"/>
+<pin name="XI" x="-7.62" y="35.56" length="middle" rot="R270"/>
+<pin name="NC@2" x="-12.7" y="35.56" length="middle" rot="R270"/>
+<pin name="ISET" x="-10.16" y="35.56" length="middle" rot="R270"/>
+<wire x1="-30.48" y1="30.48" x2="30.48" y2="30.48" width="0.254" layer="94"/>
+<wire x1="30.48" y1="30.48" x2="30.48" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="30.48" y1="-22.86" x2="-30.48" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-30.48" y1="-22.86" x2="-30.48" y2="30.48" width="0.254" layer="94"/>
+<pin name="P_GND" x="-35.56" y="-17.78" length="middle"/>
+<text x="-5.08" y="0" size="1.778" layer="94">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="KSZ9031RNX" prefix="PHY">
+<gates>
+<gate name="G$1" symbol="KSZ9031RNX" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="KSZ9031RNX">
+<connects>
+<connect gate="G$1" pin="AVDDH@1" pad="AVDDH@1"/>
+<connect gate="G$1" pin="AVDDH@2" pad="AVDDH@2"/>
+<connect gate="G$1" pin="AVDDL@1" pad="AVDDL@1"/>
+<connect gate="G$1" pin="AVDDL@2" pad="AVDDL@2"/>
+<connect gate="G$1" pin="AVDDL_PLL" pad="AVDDL_PLL"/>
+<connect gate="G$1" pin="CLK125_NDO/LED_MODE" pad="CLK125_NDO/LED_MODE"/>
+<connect gate="G$1" pin="DVDDH@1" pad="DVDDH@1"/>
+<connect gate="G$1" pin="DVDDH@2" pad="DVDDH@2"/>
+<connect gate="G$1" pin="DVDDH@3" pad="DVDDH@3"/>
+<connect gate="G$1" pin="DVDDL@1" pad="DVDDL@1"/>
+<connect gate="G$1" pin="DVDDL@2" pad="DVDDL@2"/>
+<connect gate="G$1" pin="DVDDL@3" pad="DVDDL@3"/>
+<connect gate="G$1" pin="DVDDL@4" pad="DVDDL@4"/>
+<connect gate="G$1" pin="DVDDL@5" pad="DVDDL@5"/>
+<connect gate="G$1" pin="DVDDL@6" pad="DVDDL@6"/>
+<connect gate="G$1" pin="GTX_CLK" pad="GTX_CLK"/>
+<connect gate="G$1" pin="INT_N/PME_N2" pad="INT_N/PME_N2"/>
+<connect gate="G$1" pin="ISET" pad="ISET"/>
+<connect gate="G$1" pin="LDO_O" pad="LDO_O"/>
+<connect gate="G$1" pin="LED1/PHYAD0/PME_N1" pad="LED1/PHYAD0/PME_N1"/>
+<connect gate="G$1" pin="LED2/PHYAD1" pad="LED2/PHYAD1"/>
+<connect gate="G$1" pin="MDC" pad="MDC"/>
+<connect gate="G$1" pin="MDIO" pad="MDIO"/>
+<connect gate="G$1" pin="NC@1" pad="NC@1"/>
+<connect gate="G$1" pin="NC@2" pad="NC@2"/>
+<connect gate="G$1" pin="P_GND" pad="P_GND"/>
+<connect gate="G$1" pin="RESET_N" pad="RESET_N"/>
+<connect gate="G$1" pin="RXD0/MODE0" pad="RXD0/MODE0"/>
+<connect gate="G$1" pin="RXD1/MODE1" pad="RXD1/MODE1"/>
+<connect gate="G$1" pin="RXD2/MODE2" pad="RXD2/MODE2"/>
+<connect gate="G$1" pin="RXD3/MODE3" pad="RXD3/MODE3"/>
+<connect gate="G$1" pin="RX_CLK/PHYAD2" pad="RX_CLK/PHYAD2"/>
+<connect gate="G$1" pin="RX_DV/CLK125_EN" pad="RX_DV/CLK125_EN"/>
+<connect gate="G$1" pin="TXD0" pad="TXD0"/>
+<connect gate="G$1" pin="TXD1" pad="TXD1"/>
+<connect gate="G$1" pin="TXD2" pad="TXD2"/>
+<connect gate="G$1" pin="TXD3" pad="TXD3"/>
+<connect gate="G$1" pin="TXRXM_A" pad="TXRXM_A"/>
+<connect gate="G$1" pin="TXRXM_B" pad="TXRXM_B"/>
+<connect gate="G$1" pin="TXRXM_C" pad="TXRXM_C"/>
+<connect gate="G$1" pin="TXRXM_D" pad="TXRXM_D"/>
+<connect gate="G$1" pin="TXRXP_A" pad="TXRXP_A"/>
+<connect gate="G$1" pin="TXRXP_B" pad="TXRXP_B"/>
+<connect gate="G$1" pin="TXRXP_C" pad="TXRXP_C"/>
+<connect gate="G$1" pin="TXRXP_D" pad="TXRXP_D"/>
+<connect gate="G$1" pin="TX_EN" pad="TX_EN"/>
+<connect gate="G$1" pin="VSS" pad="VSS"/>
+<connect gate="G$1" pin="XI" pad="XI"/>
+<connect gate="G$1" pin="XO" pad="XO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+<library name="supply1">
+<description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
+ GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
+ Please keep in mind, that these devices are necessary for the
+ automatic wiring of the supply signals.&lt;p&gt;
+ The pin name defined in the symbol is identical to the net which is to be wired automatically.&lt;p&gt;
+ In this library the device names are the same as the pin names of the symbols, therefore the correct signal names appear next to the supply symbols in the schematic.&lt;p&gt;
+ &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="VDD">
+<wire x1="1.27" y1="-1.905" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="0" y1="1.27" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.905" x2="0" y2="1.27" width="0.254" layer="94"/>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="VDD" x="0" y="-2.54" visible="off" length="short" direction="sup" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="VDD" prefix="VDD">
+<description>&lt;b&gt;SUPPLY SYMBOL&lt;/b&gt;</description>
+<gates>
+<gate name="G$1" symbol="VDD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -9869,13 +10089,39 @@ high speed (Philips)</description>
 <part name="J3" library="AJP92A8813" deviceset="AJP92A8813" device=""/>
 <part name="J4" library="AJP92A8813" deviceset="AJP92A8813" device=""/>
 <part name="J5" library="AJP92A8813" deviceset="AJP92A8813" device=""/>
+<part name="PHY1" library="KSZ9031RNX" deviceset="KSZ9031RNX" device=""/>
+<part name="C35" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C36" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C37" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C38" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C39" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C40" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C41" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C42" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C43" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C44" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C45" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C46" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C47" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="C48" library="rcl" deviceset="C-EU" device="C0805"/>
+<part name="VDD1" library="supply1" deviceset="VDD" device="" value="+1.2V"/>
+<part name="VDD2" library="supply1" deviceset="VDD" device="" value="+2.5V"/>
+<part name="VDD4" library="supply1" deviceset="VDD" device="" value="+3.3V"/>
+<part name="VDD5" library="supply1" deviceset="VDD" device="" value="+1.2V"/>
+<part name="R2" library="resistor" deviceset="R-EU_" device="R0805" value="6.04kΩ"/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R0805" value="12.1 kΩ"/>
+<part name="R4" library="resistor" deviceset="R-EU_" device="R0805" value="10K"/>
+<part name="R5" library="resistor" deviceset="R-EU_" device="R0805" value="10K"/>
+<part name="R6" library="resistor" deviceset="R-EU_" device="R0805" value="10K"/>
+<part name="R7" library="resistor" deviceset="R-EU_" device="R0805" value="10K"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="-93.98" y="50.8" size="1.778" layer="97">Main Crystal</text>
 <text x="-88.9" y="10.16" size="1.778" layer="97">Reset</text>
-<text x="-96.52" y="-53.34" size="1.778" layer="97">Power Rails</text>
+<text x="-96.52" y="-81.28" size="1.778" layer="97">Power Rails</text>
+<text x="104.14" y="149.86" size="1.778" layer="97">PHY1 MODE(1110) Strap in</text>
 </plain>
 <instances>
 <instance part="SW1" gate="G$1" x="78.74" y="48.26"/>
@@ -9921,16 +10167,36 @@ high speed (Philips)</description>
 <instance part="J3" gate="G$1" x="187.96" y="38.1" rot="R270"/>
 <instance part="J4" gate="G$1" x="187.96" y="10.16" rot="R270"/>
 <instance part="J5" gate="G$1" x="187.96" y="-17.78" rot="R270"/>
+<instance part="PHY1" gate="G$1" x="73.66" y="187.96"/>
+<instance part="C35" gate="G$1" x="35.56" y="175.26" rot="R270"/>
+<instance part="C36" gate="G$1" x="35.56" y="177.8" rot="R270"/>
+<instance part="C37" gate="G$1" x="35.56" y="180.34" rot="R270"/>
+<instance part="C38" gate="G$1" x="35.56" y="182.88" rot="R270"/>
+<instance part="C39" gate="G$1" x="35.56" y="185.42" rot="R270"/>
+<instance part="C40" gate="G$1" x="35.56" y="187.96" rot="R270"/>
+<instance part="C41" gate="G$1" x="35.56" y="193.04" rot="R270"/>
+<instance part="C42" gate="G$1" x="35.56" y="195.58" rot="R270"/>
+<instance part="C43" gate="G$1" x="35.56" y="198.12" rot="R270"/>
+<instance part="C44" gate="G$1" x="35.56" y="203.2" rot="R270"/>
+<instance part="C45" gate="G$1" x="35.56" y="205.74" rot="R270"/>
+<instance part="C46" gate="G$1" x="35.56" y="208.28" rot="R270"/>
+<instance part="C47" gate="G$1" x="35.56" y="213.36" rot="R270"/>
+<instance part="C48" gate="G$1" x="35.56" y="215.9" rot="R270"/>
+<instance part="VDD1" gate="G$1" x="-116.84" y="-55.88"/>
+<instance part="VDD2" gate="G$1" x="-99.06" y="-55.88"/>
+<instance part="VDD4" gate="G$1" x="-63.5" y="-55.88"/>
+<instance part="VDD5" gate="G$1" x="-81.28" y="-55.88"/>
+<instance part="R2" gate="G$1" x="15.24" y="76.2"/>
+<instance part="R3" gate="G$1" x="63.5" y="238.76" rot="R270"/>
+<instance part="R4" gate="G$1" x="106.68" y="132.08" rot="R90"/>
+<instance part="R5" gate="G$1" x="114.3" y="132.08" rot="R90"/>
+<instance part="R6" gate="G$1" x="121.92" y="132.08" rot="R90"/>
+<instance part="R7" gate="G$1" x="129.54" y="132.08" rot="R90"/>
 </instances>
 <busses>
 </busses>
 <nets>
 <net name="AVDDL" class="0">
-<segment>
-<pinref part="C30" gate="G$1" pin="1"/>
-<wire x1="-81.28" y1="-60.96" x2="-81.28" y2="-58.42" width="0.1524" layer="91"/>
-<label x="-81.28" y="-60.96" size="1.27" layer="95"/>
-</segment>
 <segment>
 <pinref part="SW1" gate="G$1" pin="AVDDL@9"/>
 <pinref part="C9" gate="G$1" pin="1"/>
@@ -9980,13 +10246,26 @@ high speed (Philips)</description>
 <wire x1="12.7" y1="-17.78" x2="0" y2="-17.78" width="0.1524" layer="91"/>
 <label x="-2.54" y="-17.78" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="C30" gate="G$1" pin="1"/>
+<wire x1="-81.28" y1="-60.96" x2="-81.28" y2="-58.42" width="0.1524" layer="91"/>
+<label x="-81.28" y="-60.96" size="1.27" layer="95"/>
+<pinref part="VDD5" gate="G$1" pin="VDD"/>
+</segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="AVDDL@1"/>
+<pinref part="PHY1" gate="G$1" pin="AVDDL_PLL"/>
+<wire x1="38.1" y1="208.28" x2="38.1" y2="205.74" width="0.1524" layer="91"/>
+<pinref part="PHY1" gate="G$1" pin="AVDDL@2"/>
+<junction x="38.1" y="205.74"/>
+<wire x1="38.1" y1="205.74" x2="38.1" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="203.2" x2="38.1" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="200.66" x2="25.4" y2="200.66" width="0.1524" layer="91"/>
+<junction x="38.1" y="203.2"/>
+<label x="25.4" y="200.66" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="AVDDH" class="0">
-<segment>
-<pinref part="C29" gate="G$1" pin="1"/>
-<wire x1="-99.06" y1="-60.96" x2="-99.06" y2="-58.42" width="0.1524" layer="91"/>
-<label x="-99.06" y="-60.96" size="1.27" layer="95"/>
-</segment>
 <segment>
 <pinref part="C12" gate="G$1" pin="1"/>
 <pinref part="SW1" gate="G$1" pin="AVDDH@2"/>
@@ -10026,13 +10305,23 @@ high speed (Philips)</description>
 <wire x1="12.7" y1="15.24" x2="-2.54" y2="15.24" width="0.1524" layer="91"/>
 <label x="-2.54" y="15.24" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="C29" gate="G$1" pin="1"/>
+<wire x1="-99.06" y1="-60.96" x2="-99.06" y2="-58.42" width="0.1524" layer="91"/>
+<label x="-99.06" y="-60.96" size="1.27" layer="95"/>
+<pinref part="VDD2" gate="G$1" pin="VDD"/>
+</segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="AVDDH@1"/>
+<pinref part="PHY1" gate="G$1" pin="AVDDH@2"/>
+<wire x1="38.1" y1="215.9" x2="38.1" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="213.36" x2="38.1" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="210.82" x2="25.4" y2="210.82" width="0.1524" layer="91"/>
+<junction x="38.1" y="213.36"/>
+<label x="25.4" y="210.82" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="VDDIO" class="0">
-<segment>
-<pinref part="C31" gate="G$1" pin="1"/>
-<wire x1="-63.5" y1="-60.96" x2="-63.5" y2="-58.42" width="0.1524" layer="91"/>
-<label x="-63.5" y="-60.96" size="1.27" layer="95"/>
-</segment>
 <segment>
 <pinref part="C26" gate="G$1" pin="1"/>
 <pinref part="SW1" gate="G$1" pin="VDDIO@2"/>
@@ -10062,13 +10351,41 @@ high speed (Philips)</description>
 <junction x="-81.28" y="-7.62"/>
 <label x="-78.74" y="-2.54" size="1.778" layer="95" rot="R90"/>
 </segment>
+<segment>
+<pinref part="C31" gate="G$1" pin="1"/>
+<wire x1="-63.5" y1="-60.96" x2="-63.5" y2="-58.42" width="0.1524" layer="91"/>
+<label x="-63.5" y="-60.96" size="1.27" layer="95"/>
+<pinref part="VDD4" gate="G$1" pin="VDD"/>
+</segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="DVDDH@1"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDH@3"/>
+<wire x1="38.1" y1="198.12" x2="38.1" y2="195.58" width="0.1524" layer="91"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDH@2"/>
+<junction x="38.1" y="195.58"/>
+<wire x1="38.1" y1="195.58" x2="38.1" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="193.04" x2="38.1" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="190.5" x2="25.4" y2="190.5" width="0.1524" layer="91"/>
+<junction x="38.1" y="193.04"/>
+<label x="25.4" y="190.5" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="106.68" y1="127" x2="106.68" y2="119.38" width="0.1524" layer="91"/>
+<label x="106.68" y="119.38" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="114.3" y1="127" x2="114.3" y2="119.38" width="0.1524" layer="91"/>
+<label x="114.3" y="119.38" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="R6" gate="G$1" pin="1"/>
+<wire x1="121.92" y1="127" x2="121.92" y2="119.38" width="0.1524" layer="91"/>
+<label x="121.92" y="119.38" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="DVDDL" class="0">
-<segment>
-<pinref part="C28" gate="G$1" pin="1"/>
-<wire x1="-116.84" y1="-60.96" x2="-116.84" y2="-58.42" width="0.1524" layer="91"/>
-<label x="-116.84" y="-60.96" size="1.27" layer="95"/>
-</segment>
 <segment>
 <pinref part="C24" gate="G$1" pin="1"/>
 <pinref part="C17" gate="G$1" pin="1"/>
@@ -10106,6 +10423,34 @@ high speed (Philips)</description>
 <wire x1="12.7" y1="38.1" x2="12.7" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="35.56" x2="-2.54" y2="35.56" width="0.1524" layer="91"/>
 <label x="-2.54" y="35.56" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C28" gate="G$1" pin="1"/>
+<wire x1="-116.84" y1="-60.96" x2="-116.84" y2="-58.42" width="0.1524" layer="91"/>
+<label x="-116.84" y="-60.96" size="1.27" layer="95"/>
+<pinref part="VDD1" gate="G$1" pin="VDD"/>
+</segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@1"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@6"/>
+<wire x1="38.1" y1="187.96" x2="38.1" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@5"/>
+<junction x="38.1" y="177.8"/>
+<wire x1="38.1" y1="185.42" x2="38.1" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="182.88" x2="38.1" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="180.34" x2="38.1" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="177.8" x2="38.1" y2="175.26" width="0.1524" layer="91"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@4"/>
+<junction x="38.1" y="180.34"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@3"/>
+<junction x="38.1" y="182.88"/>
+<pinref part="PHY1" gate="G$1" pin="DVDDL@2"/>
+<junction x="38.1" y="185.42"/>
+<wire x1="38.1" y1="175.26" x2="38.1" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="172.72" x2="25.4" y2="172.72" width="0.1524" layer="91"/>
+<junction x="38.1" y="175.26"/>
+<pinref part="C35" gate="G$1" pin="1"/>
+<label x="25.4" y="172.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -10240,6 +10585,73 @@ high speed (Philips)</description>
 <junction x="-101.6" y="35.56"/>
 <label x="-106.68" y="27.94" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="P_GND"/>
+<pinref part="PHY1" gate="G$1" pin="VSS"/>
+<wire x1="38.1" y1="170.18" x2="38.1" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="167.64" x2="25.4" y2="167.64" width="0.1524" layer="91"/>
+<junction x="38.1" y="167.64"/>
+<label x="25.4" y="167.64" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C40" gate="G$1" pin="2"/>
+<pinref part="C35" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="187.96" x2="30.48" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="185.42" x2="30.48" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="182.88" x2="30.48" y2="180.34" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="180.34" x2="30.48" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="177.8" x2="30.48" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="177.8" x2="25.4" y2="177.8" width="0.1524" layer="91"/>
+<junction x="30.48" y="177.8"/>
+<label x="25.4" y="177.8" size="1.778" layer="95"/>
+<pinref part="C37" gate="G$1" pin="2"/>
+<junction x="30.48" y="180.34"/>
+<pinref part="C38" gate="G$1" pin="2"/>
+<junction x="30.48" y="182.88"/>
+<pinref part="C39" gate="G$1" pin="2"/>
+<junction x="30.48" y="185.42"/>
+</segment>
+<segment>
+<pinref part="C43" gate="G$1" pin="2"/>
+<pinref part="C41" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="198.12" x2="30.48" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="195.58" x2="30.48" y2="193.04" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="195.58" x2="25.4" y2="195.58" width="0.1524" layer="91"/>
+<junction x="30.48" y="195.58"/>
+<label x="25.4" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C46" gate="G$1" pin="2"/>
+<pinref part="C44" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="208.28" x2="30.48" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="205.74" x2="30.48" y2="203.2" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="205.74" x2="25.4" y2="205.74" width="0.1524" layer="91"/>
+<junction x="30.48" y="205.74"/>
+<label x="25.4" y="205.74" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="C48" gate="G$1" pin="2"/>
+<pinref part="C47" gate="G$1" pin="2"/>
+<wire x1="30.48" y1="215.9" x2="30.48" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="215.9" x2="25.4" y2="215.9" width="0.1524" layer="91"/>
+<junction x="30.48" y="215.9"/>
+<label x="25.4" y="215.9" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="10.16" y1="76.2" x2="7.62" y2="76.2" width="0.1524" layer="91"/>
+<label x="7.62" y="76.2" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="R3" gate="G$1" pin="1"/>
+<wire x1="63.5" y1="243.84" x2="63.5" y2="248.92" width="0.1524" layer="91"/>
+<label x="63.5" y="243.84" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="R7" gate="G$1" pin="1"/>
+<wire x1="129.54" y1="127" x2="129.54" y2="119.38" width="0.1524" layer="91"/>
+<label x="129.54" y="119.38" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="RESET" class="0">
 <segment>
@@ -10258,6 +10670,11 @@ high speed (Philips)</description>
 <wire x1="-86.36" y1="-22.86" x2="-78.74" y2="-22.86" width="0.1524" layer="91"/>
 <wire x1="-86.36" y1="-15.24" x2="-86.36" y2="-22.86" width="0.1524" layer="91"/>
 <junction x="-86.36" y="-22.86"/>
+</segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="RESET_N"/>
+<wire x1="73.66" y1="223.52" x2="73.66" y2="236.22" width="0.1524" layer="91"/>
+<label x="73.66" y="233.68" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -10281,6 +10698,11 @@ high speed (Philips)</description>
 <junction x="-83.82" y="45.72"/>
 <pinref part="C33" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<pinref part="PHY1" gate="G$1" pin="XI"/>
+<wire x1="66.04" y1="223.52" x2="66.04" y2="236.22" width="0.1524" layer="91"/>
+<label x="66.04" y="233.68" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="XO" class="0">
 <segment>
@@ -10295,6 +10717,138 @@ high speed (Philips)</description>
 <wire x1="-83.82" y1="35.56" x2="-93.98" y2="35.56" width="0.1524" layer="91"/>
 <junction x="-83.82" y="35.56"/>
 <pinref part="C34" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="MODE0" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="TXD7_0"/>
+<pinref part="PHY1" gate="G$1" pin="RXD0/MODE0"/>
+<wire x1="76.2" y1="114.3" x2="76.2" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="147.32" x2="83.82" y2="160.02" width="0.1524" layer="91"/>
+<label x="76.2" y="132.08" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="129.54" y1="142.24" x2="129.54" y2="137.16" width="0.1524" layer="91"/>
+<label x="129.54" y="137.16" size="1.778" layer="95" rot="R90"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="MODE1" class="0">
+<segment>
+<pinref part="PHY1" gate="G$1" pin="RXD1/MODE1"/>
+<wire x1="78.74" y1="114.3" x2="78.74" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="147.32" x2="86.36" y2="160.02" width="0.1524" layer="91"/>
+<label x="78.74" y="132.08" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="121.92" y1="142.24" x2="121.92" y2="137.16" width="0.1524" layer="91"/>
+<label x="121.92" y="137.16" size="1.778" layer="95" rot="R90"/>
+<pinref part="R6" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="MODE2" class="0">
+<segment>
+<pinref part="PHY1" gate="G$1" pin="RXD2/MODE2"/>
+<wire x1="81.28" y1="114.3" x2="81.28" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="147.32" x2="88.9" y2="160.02" width="0.1524" layer="91"/>
+<label x="81.28" y="132.08" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="114.3" y1="142.24" x2="114.3" y2="137.16" width="0.1524" layer="91"/>
+<label x="114.3" y="137.16" size="1.778" layer="95" rot="R90"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="MODE3" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="TXD7_3"/>
+<pinref part="PHY1" gate="G$1" pin="RXD3/MODE3"/>
+<wire x1="83.82" y1="114.3" x2="83.82" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="147.32" x2="91.44" y2="160.02" width="0.1524" layer="91"/>
+<label x="83.82" y="132.08" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<wire x1="106.68" y1="142.24" x2="106.68" y2="137.16" width="0.1524" layer="91"/>
+<label x="106.68" y="137.16" size="1.778" layer="95" rot="R90"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RXD7_0"/>
+<pinref part="PHY1" gate="G$1" pin="TXD0"/>
+<wire x1="55.88" y1="114.3" x2="55.88" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="147.32" x2="66.04" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RXD7_1"/>
+<pinref part="PHY1" gate="G$1" pin="TXD1"/>
+<wire x1="58.42" y1="114.3" x2="58.42" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="147.32" x2="68.58" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$8" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RXD7_2"/>
+<pinref part="PHY1" gate="G$1" pin="TXD2"/>
+<wire x1="60.96" y1="114.3" x2="60.96" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="147.32" x2="71.12" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$9" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RXD7_3"/>
+<pinref part="PHY1" gate="G$1" pin="TXD3"/>
+<wire x1="63.5" y1="114.3" x2="63.5" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="147.32" x2="73.66" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RX_DV7/CRS_DV7/RX_CTL7"/>
+<pinref part="PHY1" gate="G$1" pin="RX_DV/CLK125_EN"/>
+<wire x1="71.12" y1="114.3" x2="71.12" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="147.32" x2="78.74" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="RX_CLK7/REFCLKO7"/>
+<pinref part="PHY1" gate="G$1" pin="RX_CLK/PHYAD2"/>
+<wire x1="73.66" y1="114.3" x2="73.66" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="147.32" x2="81.28" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$10" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="TX_EN7/TX_CTL7"/>
+<pinref part="PHY1" gate="G$1" pin="TX_EN"/>
+<wire x1="91.44" y1="114.3" x2="91.44" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="147.32" x2="96.52" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="TX_CLK7/REFCLKI7"/>
+<pinref part="PHY1" gate="G$1" pin="GTX_CLK"/>
+<wire x1="93.98" y1="114.3" x2="93.98" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="147.32" x2="99.06" y2="160.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$14" class="0">
+<segment>
+<pinref part="SW1" gate="G$1" pin="ISET"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="20.32" y1="76.2" x2="22.86" y2="76.2" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$15" class="0">
+<segment>
+<pinref part="PHY1" gate="G$1" pin="ISET"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="63.5" y1="233.68" x2="63.5" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>

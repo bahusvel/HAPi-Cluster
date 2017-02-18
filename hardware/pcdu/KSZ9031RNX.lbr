@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="7.6.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="yes"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="yes"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="yes"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="yes"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="yes"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="yes"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="yes"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="yes"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="yes"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="yes"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="yes"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="yes"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="yes"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="KSZ9031RNX">
+<wire x1="-3.5" y1="-3.5" x2="3.5" y2="-3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="-3.5" x2="3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="3.5" y1="3.5" x2="-3.5" y2="3.5" width="0.127" layer="21"/>
+<wire x1="-3.5" y1="3.5" x2="-3.5" y2="-3.5" width="0.127" layer="21"/>
+<smd name="P_GND" x="0" y="0" dx="5.05" dy="5.05" layer="1"/>
+<smd name="RESET_N" x="0.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LDO_O" x="-0.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="AVDDL_PLL" x="-0.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="XO" x="-1.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="XI" x="-1.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="NC@2" x="-2.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="ISET" x="-2.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="CLK125_NDO/LED_MODE" x="0.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDH@3" x="1.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@6" x="1.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="INT_N/PME_N2" x="2.25" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="MDIO" x="2.75" y="3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD0" x="0.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@2" x="-0.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED1/PHYAD0/PME_N1" x="-0.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDH@1" x="-1.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="LED2/PHYAD1" x="-1.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@1" x="-2.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="NC@1" x="-2.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD1" x="0.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD2" x="1.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXD3" x="1.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="DVDDL@3" x="2.25" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="GTX_CLK" x="2.75" y="-3.375" dx="0.65" dy="0.25" layer="1" rot="R90"/>
+<smd name="TXRXP_C" x="-3.375" y="-0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_B" x="-3.375" y="0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_B" x="-3.375" y="0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDL@1" x="-3.375" y="1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_A" x="-3.375" y="1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_A" x="-3.375" y="2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDH@1" x="-3.375" y="2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_C" x="-3.375" y="-0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDL@2" x="-3.375" y="-1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXP_D" x="-3.375" y="-1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TXRXM_D" x="-3.375" y="-2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="AVDDH@2" x="-3.375" y="-2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDL@5" x="3.375" y="-0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD1/MODE1" x="3.375" y="0.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD0/MODE0" x="3.375" y="0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RX_DV/CLK125_EN" x="3.375" y="1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDH@2" x="3.375" y="1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RX_CLK/PHYAD2" x="3.375" y="2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="MDC" x="3.375" y="2.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="VSS" x="3.375" y="-0.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD2/MODE2" x="3.375" y="-1.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="RXD3/MODE3" x="3.375" y="-1.75" dx="0.65" dy="0.25" layer="1"/>
+<smd name="DVDDL@4" x="3.375" y="-2.25" dx="0.65" dy="0.25" layer="1"/>
+<smd name="TX_EN" x="3.375" y="-2.75" dx="0.65" dy="0.25" layer="1"/>
+<text x="-1.25" y="4" size="0.6096" layer="21">&gt;NAME</text>
+<circle x="-3.2" y="3.2" radius="0.1" width="0.127" layer="21"/>
+</package>
+</packages>
+<symbols>
+<symbol name="KSZ9031RNX">
+<pin name="AVDDH@1" x="-35.56" y="27.94" length="middle"/>
+<pin name="TXRXP_A" x="35.56" y="15.24" length="middle" rot="R180"/>
+<pin name="TXRXM_A" x="35.56" y="12.7" length="middle" rot="R180"/>
+<pin name="AVDDL@1" x="-35.56" y="20.32" length="middle"/>
+<pin name="TXRXP_B" x="35.56" y="10.16" length="middle" rot="R180"/>
+<pin name="TXRXM_B" x="35.56" y="7.62" length="middle" rot="R180"/>
+<pin name="TXRXP_C" x="35.56" y="5.08" length="middle" rot="R180"/>
+<pin name="TXRXM_C" x="35.56" y="2.54" length="middle" rot="R180"/>
+<pin name="AVDDL@2" x="-35.56" y="17.78" length="middle"/>
+<pin name="TXRXP_D" x="35.56" y="0" length="middle" rot="R180"/>
+<pin name="TXRXM_D" x="35.56" y="-2.54" length="middle" rot="R180"/>
+<pin name="AVDDH@2" x="-35.56" y="25.4" length="middle"/>
+<pin name="NC@1" x="-15.24" y="35.56" length="middle" rot="R270"/>
+<pin name="DVDDL@1" x="-35.56" y="0" length="middle"/>
+<pin name="LED2/PHYAD1" x="35.56" y="20.32" length="middle" rot="R180"/>
+<pin name="DVDDH@1" x="-35.56" y="10.16" length="middle"/>
+<pin name="LED1/PHYAD0/PME_N1" x="35.56" y="17.78" length="middle" rot="R180"/>
+<pin name="DVDDL@2" x="-35.56" y="-2.54" length="middle"/>
+<pin name="TXD0" x="-7.62" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD1" x="-5.08" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD2" x="-2.54" y="-27.94" length="middle" rot="R90"/>
+<pin name="TXD3" x="0" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDL@3" x="-35.56" y="-5.08" length="middle"/>
+<pin name="GTX_CLK" x="25.4" y="-27.94" length="middle" rot="R90"/>
+<pin name="TX_EN" x="22.86" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDL@4" x="-35.56" y="-7.62" length="middle"/>
+<pin name="RXD3/MODE3" x="17.78" y="-27.94" length="middle" rot="R90"/>
+<pin name="RXD2/MODE2" x="15.24" y="-27.94" length="middle" rot="R90"/>
+<pin name="VSS" x="-35.56" y="-20.32" length="middle"/>
+<pin name="DVDDL@5" x="-35.56" y="-10.16" length="middle"/>
+<pin name="RXD1/MODE1" x="12.7" y="-27.94" length="middle" rot="R90"/>
+<pin name="RXD0/MODE0" x="10.16" y="-27.94" length="middle" rot="R90"/>
+<pin name="RX_DV/CLK125_EN" x="5.08" y="-27.94" length="middle" rot="R90"/>
+<pin name="DVDDH@2" x="-35.56" y="7.62" length="middle"/>
+<pin name="RX_CLK/PHYAD2" x="7.62" y="-27.94" length="middle" rot="R90"/>
+<pin name="MDC" x="-15.24" y="-27.94" length="middle" rot="R90"/>
+<pin name="MDIO" x="-12.7" y="-27.94" length="middle" rot="R90"/>
+<pin name="INT_N/PME_N2" x="5.08" y="35.56" length="middle" rot="R270"/>
+<pin name="DVDDL@6" x="-35.56" y="-12.7" length="middle"/>
+<pin name="DVDDH@3" x="-35.56" y="5.08" length="middle"/>
+<pin name="CLK125_NDO/LED_MODE" x="2.54" y="35.56" length="middle" rot="R270"/>
+<pin name="RESET_N" x="0" y="35.56" length="middle" rot="R270"/>
+<pin name="LDO_O" x="-2.54" y="35.56" length="middle" rot="R270"/>
+<pin name="AVDDL_PLL" x="-35.56" y="15.24" length="middle"/>
+<pin name="XO" x="-5.08" y="35.56" length="middle" rot="R270"/>
+<pin name="XI" x="-7.62" y="35.56" length="middle" rot="R270"/>
+<pin name="NC@2" x="-12.7" y="35.56" length="middle" rot="R270"/>
+<pin name="ISET" x="-10.16" y="35.56" length="middle" rot="R270"/>
+<wire x1="-30.48" y1="30.48" x2="30.48" y2="30.48" width="0.254" layer="94"/>
+<wire x1="30.48" y1="30.48" x2="30.48" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="30.48" y1="-22.86" x2="-30.48" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="-30.48" y1="-22.86" x2="-30.48" y2="30.48" width="0.254" layer="94"/>
+<pin name="P_GND" x="-35.56" y="-17.78" length="middle"/>
+<text x="-5.08" y="0" size="1.778" layer="94">&gt;NAME</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="KSZ9031RNX" prefix="PHY">
+<gates>
+<gate name="G$1" symbol="KSZ9031RNX" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="KSZ9031RNX">
+<connects>
+<connect gate="G$1" pin="AVDDH@1" pad="AVDDH@1"/>
+<connect gate="G$1" pin="AVDDH@2" pad="AVDDH@2"/>
+<connect gate="G$1" pin="AVDDL@1" pad="AVDDL@1"/>
+<connect gate="G$1" pin="AVDDL@2" pad="AVDDL@2"/>
+<connect gate="G$1" pin="AVDDL_PLL" pad="AVDDL_PLL"/>
+<connect gate="G$1" pin="CLK125_NDO/LED_MODE" pad="CLK125_NDO/LED_MODE"/>
+<connect gate="G$1" pin="DVDDH@1" pad="DVDDH@1"/>
+<connect gate="G$1" pin="DVDDH@2" pad="DVDDH@2"/>
+<connect gate="G$1" pin="DVDDH@3" pad="DVDDH@3"/>
+<connect gate="G$1" pin="DVDDL@1" pad="DVDDL@1"/>
+<connect gate="G$1" pin="DVDDL@2" pad="DVDDL@2"/>
+<connect gate="G$1" pin="DVDDL@3" pad="DVDDL@3"/>
+<connect gate="G$1" pin="DVDDL@4" pad="DVDDL@4"/>
+<connect gate="G$1" pin="DVDDL@5" pad="DVDDL@5"/>
+<connect gate="G$1" pin="DVDDL@6" pad="DVDDL@6"/>
+<connect gate="G$1" pin="GTX_CLK" pad="GTX_CLK"/>
+<connect gate="G$1" pin="INT_N/PME_N2" pad="INT_N/PME_N2"/>
+<connect gate="G$1" pin="ISET" pad="ISET"/>
+<connect gate="G$1" pin="LDO_O" pad="LDO_O"/>
+<connect gate="G$1" pin="LED1/PHYAD0/PME_N1" pad="LED1/PHYAD0/PME_N1"/>
+<connect gate="G$1" pin="LED2/PHYAD1" pad="LED2/PHYAD1"/>
+<connect gate="G$1" pin="MDC" pad="MDC"/>
+<connect gate="G$1" pin="MDIO" pad="MDIO"/>
+<connect gate="G$1" pin="NC@1" pad="NC@1"/>
+<connect gate="G$1" pin="NC@2" pad="NC@2"/>
+<connect gate="G$1" pin="P_GND" pad="P_GND"/>
+<connect gate="G$1" pin="RESET_N" pad="RESET_N"/>
+<connect gate="G$1" pin="RXD0/MODE0" pad="RXD0/MODE0"/>
+<connect gate="G$1" pin="RXD1/MODE1" pad="RXD1/MODE1"/>
+<connect gate="G$1" pin="RXD2/MODE2" pad="RXD2/MODE2"/>
+<connect gate="G$1" pin="RXD3/MODE3" pad="RXD3/MODE3"/>
+<connect gate="G$1" pin="RX_CLK/PHYAD2" pad="RX_CLK/PHYAD2"/>
+<connect gate="G$1" pin="RX_DV/CLK125_EN" pad="RX_DV/CLK125_EN"/>
+<connect gate="G$1" pin="TXD0" pad="TXD0"/>
+<connect gate="G$1" pin="TXD1" pad="TXD1"/>
+<connect gate="G$1" pin="TXD2" pad="TXD2"/>
+<connect gate="G$1" pin="TXD3" pad="TXD3"/>
+<connect gate="G$1" pin="TXRXM_A" pad="TXRXM_A"/>
+<connect gate="G$1" pin="TXRXM_B" pad="TXRXM_B"/>
+<connect gate="G$1" pin="TXRXM_C" pad="TXRXM_C"/>
+<connect gate="G$1" pin="TXRXM_D" pad="TXRXM_D"/>
+<connect gate="G$1" pin="TXRXP_A" pad="TXRXP_A"/>
+<connect gate="G$1" pin="TXRXP_B" pad="TXRXP_B"/>
+<connect gate="G$1" pin="TXRXP_C" pad="TXRXP_C"/>
+<connect gate="G$1" pin="TXRXP_D" pad="TXRXP_D"/>
+<connect gate="G$1" pin="TX_EN" pad="TX_EN"/>
+<connect gate="G$1" pin="VSS" pad="VSS"/>
+<connect gate="G$1" pin="XI" pad="XI"/>
+<connect gate="G$1" pin="XO" pad="XO"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+</eagle>
