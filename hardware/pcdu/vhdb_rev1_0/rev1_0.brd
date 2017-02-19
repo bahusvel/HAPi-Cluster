@@ -2583,8 +2583,12 @@ diameter 2 mm, horizontal, grid 7.62 mm</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="diff" width="0.127" drill="0.3">
+<clearance class="0" value="0.508"/>
+<clearance class="1" value="0.127"/>
+</class>
 </classes>
-<designrules name="default">
+<designrules name="default *">
 <description language="de">&lt;b&gt;EAGLE Design Rules&lt;/b&gt;
 &lt;p&gt;
 Die Standard-Design-Rules sind so gewählt, dass sie für 
@@ -2616,7 +2620,7 @@ design rules under a new name.</description>
 <param name="mdCopperDimension" value="40mil"/>
 <param name="mdDrill" value="8mil"/>
 <param name="mdSmdStop" value="0mil"/>
-<param name="msWidth" value="10mil"/>
+<param name="msWidth" value="5mil"/>
 <param name="msDrill" value="24mil"/>
 <param name="msMicroVia" value="9.99mm"/>
 <param name="msBlindViaRatio" value="0.5"/>
@@ -2804,7 +2808,7 @@ design rules under a new name.</description>
 <element name="J3" library="AJP92A8813" package="AJP92A8813" value="AJP92A8813" x="31" y="29.05" rot="R270"/>
 <element name="J4" library="AJP92A8813" package="AJP92A8813" value="AJP92A8813" x="12" y="28.75" rot="R270"/>
 <element name="J5" library="AJP92A8813" package="AJP92A8813" value="AJP92A8813" x="88" y="29.45" rot="R270"/>
-<element name="Q1" library="special" package="QS" value="25MHz" x="33.15" y="14.14" rot="R180"/>
+<element name="Q1" library="special" package="QS" value="25MHz" x="25.23" y="6.48" rot="R270"/>
 <element name="R1" library="resistor" package="R0805" value="10K" x="-40.64" y="41.91"/>
 <element name="R2" library="resistor" package="R0805" value="6.04kΩ" x="-52.07" y="33.02"/>
 <element name="SW1" library="KSZ9897RTXC" package="KSZ9897RTXC" value="KSZ9897RTXC" x="49.11" y="9.41" rot="R180"/>
@@ -3116,15 +3120,15 @@ design rules under a new name.</description>
 <contactref element="C33" pad="1"/>
 <contactref element="PHY2" pad="XI"/>
 <wire x1="31.25" y1="2.99" x2="56.71" y2="14.81" width="0" layer="19" extent="1-16"/>
-<wire x1="30.61" y1="14.14" x2="31.25" y2="2.99" width="0" layer="19" extent="16-16"/>
-<wire x1="-56.83" y1="52.07" x2="30.61" y2="14.14" width="0" layer="19" extent="1-1"/>
+<wire x1="25.23" y1="3.94" x2="31.25" y2="2.99" width="0" layer="19" extent="16-16"/>
+<wire x1="-56.83" y1="52.07" x2="25.23" y2="3.94" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="XO">
 <contactref element="SW1" pad="XO"/>
 <contactref element="Q1" pad="1"/>
 <contactref element="C34" pad="1"/>
-<wire x1="35.69" y1="14.14" x2="56.71" y2="14.41" width="0" layer="19" extent="1-1"/>
-<wire x1="-61.91" y1="52.07" x2="35.69" y2="14.14" width="0" layer="19" extent="1-1"/>
+<wire x1="25.23" y1="9.02" x2="56.71" y2="14.41" width="0" layer="19" extent="1-1"/>
+<wire x1="-61.91" y1="52.07" x2="25.23" y2="9.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="MODE0">
 <contactref element="PHY2" pad="RXD0/MODE0"/>
@@ -3279,61 +3283,80 @@ design rules under a new name.</description>
 <contactref element="MAG3" pad="TD4-"/>
 <wire x1="24.015" y1="20.75" x2="42.91" y2="17.01" width="0" layer="19" extent="1-16"/>
 </signal>
-<signal name="D54_N">
+<signal name="D54_N" class="1">
 <contactref element="SW1" pad="TXRX5M_D"/>
 <contactref element="MAG5" pad="TD4-"/>
-<wire x1="74.71670625" y1="12.81" x2="72.45695" y2="12.81" width="0.254" layer="1"/>
-<wire x1="72.45695" y1="12.81" x2="72.14745" y2="13.1195" width="0.254" layer="1" curve="-90"/>
-<wire x1="72.14745" y1="13.1195" x2="72.14745" y2="13.426025" width="0.254" layer="1"/>
-<wire x1="72.14745" y1="13.426025" x2="71.83795" y2="13.735525" width="0.254" layer="1" curve="90"/>
-<wire x1="71.83795" y1="13.735525" x2="70.469" y2="13.735525" width="0.254" layer="1"/>
-<wire x1="70.469" y1="13.735525" x2="70.1595" y2="13.426025" width="0.254" layer="1" curve="90"/>
-<wire x1="70.1595" y1="13.426025" x2="70.1595" y2="13.1195" width="0.254" layer="1"/>
-<wire x1="70.1595" y1="13.1195" x2="69.85" y2="12.81" width="0.254" layer="1" curve="-90"/>
-<wire x1="69.85" y1="12.81" x2="56.71" y2="12.81" width="0.254" layer="1"/>
-<wire x1="74.71670625" y1="12.81" x2="81.118353125" y2="18.703646875" width="0.254" layer="1"/>
-<via x="81.118353125" y="18.703646875" extent="1-16" drill="0.6096"/>
-<wire x1="81.118353125" y1="18.703646875" x2="81.118353125" y2="20.646646875" width="0.254" layer="16"/>
-<wire x1="81.118353125" y1="20.646646875" x2="81.015" y2="20.75" width="0.254" layer="16"/>
+<wire x1="56.71" y1="12.81" x2="60.8365125" y2="12.81" width="0.127" layer="1"/>
+<wire x1="60.8365125" y1="12.81" x2="66.4796125" y2="18.4531" width="0.127" layer="1"/>
+<wire x1="66.4796125" y1="18.4531" x2="81.026" y2="18.4531" width="0.127" layer="1"/>
+<via x="81.026" y="18.4531" extent="1-16" drill="0.6096"/>
+<wire x1="81.026" y1="18.4531" x2="81.026" y2="20.739" width="0.127" layer="16"/>
+<wire x1="81.026" y1="20.739" x2="81.015" y2="20.75" width="0.127" layer="16"/>
 </signal>
-<signal name="D54_P">
+<signal name="D54_P" class="1">
 <contactref element="SW1" pad="TXRX5P_D"/>
 <contactref element="MAG5" pad="TD4+"/>
-<wire x1="75.656" y1="12.41" x2="56.71" y2="12.41" width="0.254" layer="1"/>
-<via x="82.296" y="18.796" extent="1-16" drill="0.6096"/>
-<wire x1="82.296" y1="18.796" x2="82.296" y2="20.739" width="0.254" layer="16"/>
-<wire x1="82.296" y1="20.739" x2="82.285" y2="20.75" width="0.254" layer="16"/>
-<wire x1="75.656" y1="12.41" x2="82.296" y2="18.796" width="0.254" layer="1"/>
+<wire x1="56.71" y1="12.41" x2="60.9034875" y2="12.41" width="0.127" layer="1"/>
+<wire x1="60.9034875" y1="12.41" x2="66.6163875" y2="17.3609" width="0.127" layer="1"/>
+<wire x1="66.6163875" y1="17.3609" x2="81.026" y2="17.3609" width="0.127" layer="1"/>
+<via x="81.026" y="17.3609" extent="1-16" drill="0.6096"/>
+<wire x1="81.026" y1="17.3609" x2="82.285" y2="18.6199" width="0.127" layer="16"/>
+<wire x1="82.285" y1="18.6199" x2="82.285" y2="20.75" width="0.127" layer="16"/>
 </signal>
-<signal name="N$38">
+<signal name="D53_N" class="1">
 <contactref element="SW1" pad="TXRX5M_C"/>
 <contactref element="MAG5" pad="TD3-"/>
-<wire x1="56.71" y1="11.61" x2="84.825" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="11.61" x2="77.83470625" y2="11.61" width="0.127" layer="1"/>
+<wire x1="84.963" y1="18.796" x2="77.83470625" y2="11.61" width="0.127" layer="1"/>
+<via x="84.963" y="18.796" extent="1-16" drill="0.6096"/>
+<wire x1="84.963" y1="18.796" x2="84.928353125" y2="20.646646875" width="0.254" layer="16"/>
+<wire x1="84.928353125" y1="20.646646875" x2="84.825" y2="20.75" width="0.254" layer="16"/>
 </signal>
-<signal name="N$39">
+<signal name="D53_P" class="1">
 <contactref element="SW1" pad="TXRX5P_C"/>
 <contactref element="MAG5" pad="TD3+"/>
-<wire x1="56.71" y1="11.21" x2="86.095" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="11.21" x2="78.84329375" y2="11.21" width="0.127" layer="1"/>
+<wire x1="78.84329375" y1="11.21" x2="86.106" y2="18.796" width="0.127" layer="1"/>
+<via x="86.106" y="18.796" extent="1-16" drill="0.6096"/>
+<wire x1="86.013646875" y1="20.668646875" x2="86.095" y2="20.75" width="0.254" layer="16"/>
+<wire x1="86.106" y1="18.796" x2="86.106" y2="20.739" width="0.254" layer="16"/>
+<wire x1="86.106" y1="20.739" x2="86.095" y2="20.75" width="0.254" layer="16"/>
 </signal>
-<signal name="N$40">
+<signal name="D52_N" class="1">
 <contactref element="SW1" pad="TXRX5M_B"/>
 <contactref element="MAG5" pad="TD2-"/>
-<wire x1="56.71" y1="10.81" x2="88.635" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="10.81" x2="81.60670625" y2="10.81" width="0.127" layer="1"/>
+<wire x1="81.60670625" y1="10.81" x2="88.738353125" y2="18.703646875" width="0.127" layer="1"/>
+<via x="88.738353125" y="18.703646875" extent="1-16" drill="0.6096"/>
+<wire x1="88.738353125" y1="18.703646875" x2="88.738353125" y2="20.646646875" width="0.254" layer="16"/>
+<wire x1="88.738353125" y1="20.646646875" x2="88.635" y2="20.75" width="0.254" layer="16"/>
 </signal>
-<signal name="N$41">
+<signal name="D52_P" class="1">
 <contactref element="SW1" pad="TXRX5P_B"/>
 <contactref element="MAG5" pad="TD2+"/>
-<wire x1="56.71" y1="10.41" x2="89.905" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="10.41" x2="82.61529375" y2="10.41" width="0.127" layer="1"/>
+<wire x1="82.61529375" y1="10.41" x2="89.823646875" y2="18.634353125" width="0.127" layer="1"/>
+<via x="89.823646875" y="18.634353125" extent="1-16" drill="0.6096"/>
+<wire x1="89.823646875" y1="18.634353125" x2="89.823646875" y2="20.668646875" width="0.254" layer="16"/>
+<wire x1="89.823646875" y1="20.668646875" x2="89.905" y2="20.75" width="0.254" layer="16"/>
 </signal>
-<signal name="N$42">
+<signal name="D51_N" class="1">
 <contactref element="SW1" pad="TXRX5M_A"/>
 <contactref element="MAG5" pad="TD1-"/>
-<wire x1="56.71" y1="9.61" x2="92.445" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="9.61" x2="83.5445125" y2="9.61" width="0.127" layer="1"/>
+<wire x1="83.5445125" y1="9.61" x2="92.59325625" y2="18.65874375" width="0.127" layer="1"/>
+<via x="92.59325625" y="18.65874375" extent="1-16" drill="0.6096"/>
+<wire x1="92.59325625" y1="18.65874375" x2="92.59325625" y2="20.60174375" width="0.127" layer="16"/>
+<wire x1="92.59325625" y1="20.60174375" x2="92.445" y2="20.75" width="0.127" layer="16"/>
 </signal>
-<signal name="N$43">
+<signal name="D51_P" class="1">
 <contactref element="SW1" pad="TXRX5P_A"/>
 <contactref element="MAG5" pad="TD1+"/>
-<wire x1="56.71" y1="9.21" x2="93.715" y2="20.75" width="0" layer="19" extent="1-16"/>
+<wire x1="56.71" y1="9.21" x2="84.6274875" y2="9.21" width="0.127" layer="1"/>
+<wire x1="84.6274875" y1="9.21" x2="93.84274375" y2="18.42525625" width="0.127" layer="1"/>
+<via x="93.84274375" y="18.42525625" extent="1-16" drill="0.6096"/>
+<wire x1="93.84274375" y1="18.42525625" x2="93.84274375" y2="20.62225625" width="0.254" layer="16"/>
+<wire x1="93.84274375" y1="20.62225625" x2="93.715" y2="20.75" width="0.254" layer="16"/>
 </signal>
 <signal name="N$44">
 <contactref element="SW1" pad="TXRX4M_D"/>
